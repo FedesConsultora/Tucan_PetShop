@@ -1,0 +1,143 @@
+@use '../../../scss/variables' as *;
+
+.inicio-section {
+  background-color: white;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  overflow: visible;
+
+  .hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: stretch;
+    min-height: 100vh;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding: 200px 0 100px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+
+    h1 {
+      font-family: $font-rockwell-extrabold;
+      font-size: 4.8rem;
+      color: $primary-yellow;
+      line-height: 0.85;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      letter-spacing: -2px;
+
+      span {
+        color: #000;
+        display: block;
+        font-size: 3.8rem;
+        margin-top: 10px;
+      }
+    }
+
+    .cta-btn {
+      align-self: flex-start;
+      background-color: $primary-red;
+      color: white;
+      padding: 12px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 20px rgba($primary-red, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px rgba($primary-red, 0.3);
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  .hero-image-wrapper {
+    flex: 1.5;
+    position: relative;
+    padding: 120px 40px 60px 0;
+
+    .hero-pic {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0 0 100px 100px;
+      display: block;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .v-red {
+      position: absolute;
+      bottom: -40px;
+      right: -100px;
+      width: 110%;
+      z-index: 150;
+      pointer-events: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .inicio-section {
+    .hero-content {
+      padding-left: 50px;
+
+      h1 {
+        font-size: 3.5rem;
+
+        span {
+          font-size: 2.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .inicio-section {
+    padding-top: 100px;
+    height: auto;
+
+    .hero-container {
+      flex-direction: column-reverse;
+    }
+
+    .hero-content {
+      padding: 60px 20px;
+      text-align: center;
+      align-items: center;
+
+      h1 {
+        font-size: 2.5rem;
+
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .hero-image-wrapper {
+      padding: 20px;
+
+      .hero-pic {
+        border-radius: 60px;
+      }
+
+      .v-red {
+        width: 150%;
+        bottom: -20px;
+        right: -25%;
+      }
+    }
+  }
+}

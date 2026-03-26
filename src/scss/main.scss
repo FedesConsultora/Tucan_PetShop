@@ -1,60 +1,38 @@
-@use "variables" as v;
 @use "sass:color";
+@use 'variables' as *;
+@use 'fonts';
 
-:root {
-  font-family: v.$font-main;
-  line-height: 1.5;
-  font-weight: 400;
+html {
+  scroll-behavior: smooth;
+}
 
-  color-scheme: light dark;
-  color: v.$dark;
-  background-color: v.$light;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: white;
+  color: $dark-color;
+  font-family: $font-main;
+  line-height: 1.4;
+  overflow-x: hidden;
 }
 
-#app {
-  max-width: 1280px;
+.container {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  flex: 1;
+  padding: 0px;
 }
 
-h1 {
-  color: v.$primary;
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.footer {
-  padding: 2rem;
-  background-color: v.$dark;
-  color: v.$white;
-  text-align: center;
-  margin-top: auto;
-
-  p {
-    margin: 0.5rem 0;
-  }
-
-  a {
-    color: v.$primary;
-    text-decoration: none;
-    font-weight: bold;
-    
-    &:hover {
-      color: color.adjust(v.$primary, $lightness: 10%);
-    }
-  }
+// Global Section Styles
+section {
+  min-height: 100vh;
+  padding: 120px 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }

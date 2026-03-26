@@ -1,15 +1,13 @@
-@use "sass:color";
+$primary-red: #e32223;
+$primary-yellow: #FFC548;
+$dark-color: #1E1E1E;
+$light-color: #ffffff;
 
-// Tucan Pet Shop Variables
-$primary: #ff8c00; // Un naranja tucán
-$secondary: #4caf50; // Verde amigable
-$dark: #333333;
-$light: #f9f9f9;
-$white: #ffffff;
+// Tipografías
+$font-main: 'Nunito', sans-serif;
+$font-rockwell-bold: 'Rockwell Bold', serif;
+$font-rockwell-extrabold: 'Rockwell Extra Bold', serif;
 
-// Example of modern color adjustment (replacing lighten/darken)
-$primary-light: color.adjust($primary, $lightness: 20%);
-$primary-dark: color.adjust($primary, $lightness: -10%);
-
-// Fonts
-$font-main: 'Outfit', sans-serif;
+// Layout
+$container-width: 1200px;
+$navbar-height: 80px;
