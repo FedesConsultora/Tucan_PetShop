@@ -9,4 +9,4 @@ const Promos = () => {
   );
 };
 
-export default Proyectos;
+export default Promos;

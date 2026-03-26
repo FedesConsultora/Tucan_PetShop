@@ -48,10 +48,9 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'inicio', label: 'Inicio' },
-    { id: 'nosotros', label: 'Nosotros' },
+    { id: 'promos', label: 'Promos' },
     { id: 'servicios', label: 'Servicios' },
     { id: 'ventajas', label: 'Ventajas' },
-    { id: 'proyectos', label: 'Proyectos' },
     { id: 'testimonios', label: 'Testimonios' },
   ];
 
@@ -64,7 +63,7 @@ const Navbar = () => {
         <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.id}>
-              <a 
+              <a
                 href={`#${item.id}`}
                 className={activeSection === item.id ? 'active' : ''}
               >
