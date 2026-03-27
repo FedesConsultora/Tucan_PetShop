@@ -3,14 +3,14 @@
 .testimonios {
   position: relative;
   z-index: 10;
-  padding: 150px 0 20px;
+  padding: 100px 0 20px;
   margin-bottom: -150px;
 
   /* ---- Viewport ---- */
   &__viewport {
     overflow: hidden;
     width: 100%;
-    padding: 40px 0 20px;
+    padding: 60px 0 20px;
   }
 
   /* ---- Track ---- */
@@ -23,18 +23,18 @@
 
   /* ---- Card ---- */
   &__card {
-    flex: 0 0 320px;
-    height: 230px;
+    flex: 0 0 480px;
+    height: 247px;
     background: white;
-    border-radius: 16px;
+    border-radius: 8px;
     padding: 50px 24px 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.09);
     text-align: left;
     position: relative;
     transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
     opacity: 1;
-    transform: scale(0.92);
-    border-bottom: 3px solid $primary-yellow;
+
+
 
 
   }
@@ -48,11 +48,10 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #f0a800, $primary-yellow);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid white;
+    border: 1px solid white;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     overflow: hidden;
 
@@ -71,24 +70,29 @@
 
   /* ---- Text ---- */
   &__card-title {
+    text-align: center;
     font-family: $font-main;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: $dark-color;
     margin-bottom: 10px;
     line-height: 1.25;
   }
 
   &__quote {
-    font-size: 0.78rem;
-    color: #555;
+    text-align: center;
+    font-size: 1rem;
+    color: $dark-color;
     line-height: 1.55;
     margin-bottom: 14px;
-    font-style: italic;
+
   }
 
   &__author {
-    font-size: 0.72rem;
-    color: $primary-red;
+
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.80rem;
+    color: #7659FF;
     font-weight: 600;
   }
 

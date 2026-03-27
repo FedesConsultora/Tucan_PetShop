@@ -20,7 +20,7 @@
   }
 
   .servicios-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
     position: relative;
@@ -30,14 +30,13 @@
   /* ===================== BENTO GRID ===================== */
   .servicios-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto auto;
     gap: 20px;
 
-    /*   LAYOUT MAP (desktop):
-     *   [alimentos  ] [alimentos] [cta       ]
-     *   [farmacia   ] [accesorios] [estetica  ]
-     *                 [accesorios]
+    /*   LAYOUT MAP (desktop - 12 cols):
+     *   Top: [alimentos (7)] [cta (4)] [empty (1)]   -> 11 total
+     *   Bot: [farmacia (4)] [accesorios (4)] [estetica (4)] -> 12 total
      */
   }
 
@@ -83,22 +82,26 @@
 
   /* ---- Individual card positions ---- */
   .servicios-card--alimentos {
-    grid-column: 1 / 3;
+    grid-column: 1 / 8;
+    margin-left: 32px;
     grid-row: 1;
-    max-height: 270px;
+    height: 290px; // Slightly taller as per design
+    max-height: none;
   }
 
   .servicios-card--cta {
-    grid-column: 3;
+    grid-column: 8 / 16;
+    margin-right: 5rem;
     grid-row: 1;
     background-color: $primary-yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px 24px;
+    padding: 10px 4px;
     text-align: center;
-    max-height: 270px;
+    height: 290px;
+    max-height: none;
 
     /* No gradient overlay for CTA card */
     &::after {
@@ -107,7 +110,7 @@
 
     h2 {
       font-family: $font-rockwell-bold;
-      font-size: 2.3rem;
+      font-size: 3rem;
       color: white;
       line-height: 1;
       margin-bottom: 18px;
@@ -118,11 +121,11 @@
       display: inline-block;
       background-color: $primary-red;
       color: white;
-      padding: 10px 22px;
+      padding: 12px 24px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
@@ -134,21 +137,25 @@
   }
 
   .servicios-card--farmacia {
-    grid-column: 1;
+    grid-column: 1 / 5;
     grid-row: 2;
-    max-height: 260px;
+    height: 380px;
+    max-height: none;
   }
 
   .servicios-card--accesorios {
-    grid-column: 2;
+    grid-column: 5 / 9;
     grid-row: 2;
-    min-height: 360px;
+    height: 520px; // Particularly tall card
+    min-height: none;
   }
 
   .servicios-card--estetica {
-    grid-column: 3;
+    grid-column: 9 / 13;
     grid-row: 2;
-    max-height: 160px;
+    height: 240px;
+    max-height: none;
+    align-self: flex-start; // Sits at the top of the row
   }
 }
 
@@ -167,6 +174,7 @@
     }
 
     .servicios-card--alimentos {
+
       grid-column: 1 / 3;
       grid-row: 1;
     }
