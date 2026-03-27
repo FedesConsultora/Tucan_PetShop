@@ -1,0 +1,52 @@
+@use '../../scss/variables' as *;
+
+.divider {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  z-index: 10;
+  margin: -40px 0 -60px;
+  pointer-events: none;
+
+  &__wave {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__dog {
+    position: absolute;
+    top: -20px;
+    right: 2%;
+    width: 110px;
+    height: auto;
+    z-index: 11;
+    transform: rotate(-5deg);
+  }
+}
+
+/* ========== Tablet ========== */
+@media (max-width: 991px) {
+  .divider {
+    margin: -20px 0 -40px;
+
+    &__dog {
+      width: 80px;
+      top: -15px;
+      right: 3%;
+    }
+  }
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 576px) {
+  .divider {
+    margin: -10px 0 -25px;
+
+    &__dog {
+      width: 60px;
+      top: -10px;
+      right: 3%;
+    }
+  }
+}

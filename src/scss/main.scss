@@ -20,10 +20,23 @@ body {
   overflow-x: hidden;
 }
 
+.app-wrapper {
+  overflow-x: clip;
+  width: 100%;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0px;
+}
+
+// Wrapper for Inicio + Promos so the red curve can span both
+.inicio-promos-wrapper {
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+  z-index: 1;
 }
 
 // Global Section Styles

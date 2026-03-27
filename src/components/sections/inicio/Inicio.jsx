@@ -1,5 +1,5 @@
-
 import './Inicio.scss';
+import HeroPic from '../../../assets/img/hero-pic.png';
 
 const Inicio = () => {
   return (
@@ -14,12 +14,11 @@ const Inicio = () => {
               DE DISTANCIA.
             </span>
           </h1>
-          <a href="#proyectos" className="cta-btn">¡Hacer mi pedido ahora!</a>
+          <a href="#promos" className="cta-btn">¡Hacer mi pedido ahora!</a>
         </div>
 
         <div className="hero-image-wrapper">
-          <img src="/src/assets/img/hero-pic.png" alt="Happy Pet and Owner" className="hero-pic" />
-          <img src="/src/assets/img/v-red.png" alt="Decorative Wave" className="v-red" />
+          <img src={HeroPic} alt="Happy Pet and Owner" className="hero-pic" />
         </div>
       </div>
     </section>

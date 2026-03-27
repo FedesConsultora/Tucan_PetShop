@@ -1,0 +1,190 @@
+@use '../../../scss/variables' as *;
+
+.testimonios {
+  position: relative;
+  z-index: 10;
+  padding: 150px 0 20px;
+  margin-bottom: -150px;
+
+  /* ---- Viewport ---- */
+  &__viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 40px 0 20px;
+  }
+
+  /* ---- Track ---- */
+  &__track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  /* ---- Card ---- */
+  &__card {
+    flex: 0 0 320px;
+    height: 230px;
+    background: white;
+    border-radius: 16px;
+    padding: 50px 24px 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    text-align: left;
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+    opacity: 1;
+    transform: scale(0.92);
+    border-bottom: 3px solid $primary-yellow;
+
+
+  }
+
+  /* ---- Avatar – sits on top edge of card ---- */
+  &__avatar {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0a800, $primary-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
+    span {
+      font-family: $font-main;
+      font-size: 1.3rem;
+      color: white;
+    }
+  }
+
+  /* ---- Text ---- */
+  &__card-title {
+    font-family: $font-main;
+    font-size: 0.95rem;
+    color: $dark-color;
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  &__quote {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  &__author {
+    font-size: 0.72rem;
+    color: $primary-red;
+    font-weight: 600;
+  }
+
+  /* ---- Arrows ---- */
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: $dark-color;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.12);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    line-height: 1;
+
+    &:hover {
+      background: $primary-red;
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &--left {
+      left: 16px;
+    }
+
+    &--right {
+      right: 16px;
+    }
+  }
+
+
+
+}
+
+/* ========== Tablet ========== */
+@media (max-width: 991px) {
+  .testimonios {
+    padding: 60px 20px;
+
+    &__card {
+      flex: 0 0 300px;
+      padding: 36px 18px 18px;
+      margin-bottom: 120px;
+
+    }
+
+    &__arrow {
+      width: 34px;
+      height: 34px;
+
+      &--left {
+        left: 8px;
+      }
+
+      &--right {
+        right: 8px;
+      }
+    }
+  }
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 576px) {
+  .testimonios {
+    padding: 20px 0 20px;
+
+    &__card {
+      flex: 0 0 300px;
+      padding: 36px 18px 18px;
+      margin-bottom: 120px;
+    }
+
+    &__avatar {
+      width: 48px;
+      height: 48px;
+      top: -24px;
+
+      span {
+        font-size: 1.1rem;
+      }
+    }
+
+    &__arrow {
+      width: 30px;
+      height: 30px;
+      font-size: 1.1rem;
+
+      &--left {
+        left: 4px;
+      }
+
+      &--right {
+        right: 4px;
+      }
+    }
+  }
+}

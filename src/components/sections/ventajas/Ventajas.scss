@@ -1,0 +1,171 @@
+@use '../../../scss/variables' as *;
+
+.ventajas-section {
+  position: relative;
+  overflow: visible;
+  min-height: auto;
+  padding: 60px 0 120px;
+  background-color: white;
+
+  /* Purple decorative wave */
+  .ventajas-purple-wave {
+    position: absolute;
+    bottom: -20px;
+    left: -5%;
+    width: 110%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .ventajas-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ===================== CARD ===================== */
+  .ventajas-card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+    padding: 50px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---- Left: Mascot ---- */
+  .ventajas-mascot {
+    flex: 0 0 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  /* ---- Right: Content ---- */
+  .ventajas-content {
+    flex: 1;
+
+    &__title {
+      font-family: $font-rockwell-extrabold;
+      font-size: 2.4rem;
+      color: $dark-color;
+      line-height: 1;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+  }
+
+  .ventajas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .ventajas-item {
+    &__title {
+      font-family: $font-rockwell-bold;
+      font-size: 1.1rem;
+      color: #E91E90;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    &__desc {
+      font-family: $font-main;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      max-width: 380px;
+    }
+  }
+}
+
+/* ===================== TABLET ===================== */
+@media (max-width: 991px) {
+  .ventajas-section {
+    padding: 40px 0 100px;
+
+    .ventajas-container {
+      padding: 0 24px;
+    }
+
+    .ventajas-card {
+      flex-direction: column;
+      padding: 40px 30px;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .ventajas-mascot {
+      flex: none;
+      width: 200px;
+    }
+
+    .ventajas-content {
+      &__title {
+        font-size: 2rem;
+      }
+    }
+
+    .ventajas-item {
+      &__desc {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 576px) {
+  .ventajas-section {
+    padding: 30px 0 80px;
+
+    .ventajas-container {
+      padding: 0 16px;
+    }
+
+    .ventajas-card {
+      padding: 30px 20px;
+      gap: 24px;
+      border-radius: 20px;
+    }
+
+    .ventajas-mascot {
+      width: 160px;
+    }
+
+    .ventajas-content {
+      &__title {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+      }
+    }
+
+    .ventajas-list {
+      gap: 18px;
+    }
+
+    .ventajas-item {
+      &__title {
+        font-size: 1rem;
+      }
+
+      &__desc {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

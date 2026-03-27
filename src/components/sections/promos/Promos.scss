@@ -1,0 +1,252 @@
+@use '../../../scss/variables' as *;
+
+.promos-section {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+  min-height: auto;
+  padding: 80px 0 100px;
+  background-color: white;
+
+  .promos-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ===================== LEFT SIDE ===================== */
+  .promos-left {
+    flex: 0 0 320px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promos-image-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+    .promos-pic {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+
+  .promos-banner {
+    background-color: $primary-yellow;
+    border-radius: 20px;
+    padding: 28px 30px 24px;
+    text-align: center;
+    margin-top: -50px;
+    position: relative;
+    z-index: 3;
+    width: 90%;
+
+    h2 {
+      font-family: $font-rockwell-extrabold;
+      font-size: 1.8rem;
+      color: $dark-color;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .promos-date {
+      font-family: $font-main;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: $dark-color;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .promos-cta {
+      display: inline-block;
+      background-color: $primary-red;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border: 2px solid $primary-red;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba($primary-red, 0.3);
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  /* ===================== RIGHT SIDE – CARDS GRID ===================== */
+  .promos-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .promo-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    &__bank-logo {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    &__day-pill {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+
+      &--red {
+        background-color: $primary-red;
+        color: white;
+      }
+
+      &--yellow {
+        background-color: $primary-yellow;
+        color: $dark-color;
+      }
+
+      &--green {
+        background-color: #4CAF50;
+        color: white;
+      }
+    }
+
+
+
+    &__title {
+      font-family: $font-rockwell-extrabold;
+      font-size: 1.6rem;
+      color: $dark-color;
+      line-height: 1;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    &__highlight {
+      font-family: $font-rockwell-bold;
+      font-size: 0.8rem;
+      color: $dark-color;
+      line-height: 1.3;
+
+      span {
+        font-family: $font-main;
+        font-weight: 400;
+        color: #666;
+      }
+    }
+
+    &__desc {
+      font-size: 0.8rem;
+      color: #666;
+      line-height: 1.3;
+    }
+  }
+}
+
+/* ===================== TABLET ===================== */
+@media (max-width: 991px) {
+  .promos-section {
+    padding: 60px 0 80px;
+
+    .promos-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .promos-left {
+      flex: none;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .promos-grid {
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+    }
+
+    .promo-card {
+      &__title {
+        font-size: 1.35rem;
+      }
+    }
+  }
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 576px) {
+  .promos-section {
+    padding: 40px 0 60px;
+
+    .promos-container {
+      padding: 0 16px;
+      gap: 24px;
+    }
+
+    .promos-left {
+      max-width: 280px;
+    }
+
+    .promos-banner {
+      padding: 20px 20px 18px;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .promos-date {
+        font-size: 0.85rem;
+      }
+    }
+
+    .promos-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .promo-card {
+      padding: 16px 18px;
+
+      &__title {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
