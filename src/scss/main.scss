@@ -49,3 +49,9 @@ section {
   justify-content: center;
   position: relative;
 }
+
+// Hero section uses aspect-ratio instead of min-height
+.inicio-section {
+  min-height: unset;
+  padding: 0;
+}

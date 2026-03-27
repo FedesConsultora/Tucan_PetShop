@@ -1,25 +1,16 @@
 import './Inicio.scss';
-import HeroPic from '../../../assets/img/hero-pic.png';
 
 const Inicio = () => {
   return (
     <section id="inicio" className="inicio-section">
       <div className="hero-container">
-        <div className="hero-content">
-          <h1>
-            TODO LO QUE TU<br />
-            MASCOTA AMA,
-            <span>
-              A UN SOLO CLIC<br />
-              DE DISTANCIA.
-            </span>
-          </h1>
-          <a href="#promos" className="cta-btn">¡Hacer mi pedido ahora!</a>
-        </div>
-
-        <div className="hero-image-wrapper">
-          <img src={HeroPic} alt="Happy Pet and Owner" className="hero-pic" />
-        </div>
+        <h1 className="hero-text">
+          <span className="hero-text--yellow">Todo lo que tu mascota ama,</span>
+          <span className="hero-text--dark">a un solo clic de distancia.</span>
+        </h1>
+        <button className="cta-btn">
+          ¡Hacer mi pedido ahora!
+        </button>
       </div>
     </section>
   );

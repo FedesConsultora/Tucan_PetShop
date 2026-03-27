@@ -18,7 +18,7 @@ function App() {
         <main>
           <div className="inicio-promos-wrapper">
             <Inicio />
-            <RedCurve />
+            {/* <RedCurve /> */}
             <Promos />
           </div>
           <Divider />

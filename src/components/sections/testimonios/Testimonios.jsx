@@ -1,8 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import './Testimonios.scss';
 
+// Import images
+import Testimony1 from '../../../assets/img/testimonios/testimony-1.png';
+import Testimony2 from '../../../assets/img/testimonios/testimony-2.png';
+import Testimony3 from '../../../assets/img/testimonios/testimony-3.png';
+import Testimony4 from '../../../assets/img/testimonios/testimony-4.png';
+import Testimony5 from '../../../assets/img/testimonios/testimony-5.png';
+
 const testimoniosData = [
   {
+    image: Testimony1,
     initial: 'M',
     name: 'María S. (Dueña de "Luna")',
     title: 'Aman a los animales',
@@ -10,6 +18,7 @@ const testimoniosData = [
       'Tucán no es solo que tiene buenas marcas, sino la calidad humana. Me ayudan en el juguete ideal o el alimento para mi perrita según su edad.',
   },
   {
+    image: Testimony2,
     initial: 'L',
     name: 'Lucía M. (Dueña de "Coki" y "Toby")',
     title: 'Mi pet shop de confianza desde siempre.',
@@ -17,6 +26,7 @@ const testimoniosData = [
       '"Compro todo acá: desde las pipetas hasta los juguetes. Los precios son muy competitivos y las ofertas del mes realmente valen la pena. Lo mejor es que el trato es super humano y personalizado."',
   },
   {
+    image: Testimony3,
     initial: 'M',
     name: 'Mariana G. (Dueña de "Rocco")',
     title: 'La atención por WhatsApp es un 10.',
@@ -24,6 +34,7 @@ const testimoniosData = [
       '"Me encanta que puedo hacer mi pedido en dos minutos mientras trabajo y me llega a casa el mismo día. No tengo que cargar bolsas pesadas y siempre tienen el alimento que mi perro necesita. ¡Súper recomendados!"',
   },
   {
+    image: Testimony4,
     initial: 'C',
     name: 'Carlos R. (Dueño de "Milo")',
     title: 'Tienen de todo y te asesoran.',
@@ -31,6 +42,7 @@ const testimoniosData = [
       '"Buscaba un medicamento para alergias alimentarias que no encontraba en ningún lado, y acá me ayudaron enseguida con opciones y el envío fue rápido."',
   },
   {
+    image: Testimony5,
     initial: 'A',
     name: 'Ana P. (Dueña de "Bella")',
     title: 'Servicio excelente siempre.',
@@ -97,7 +109,11 @@ const Testimonios = () => {
               key={index}
             >
               <div className="testimonios__avatar">
-                <span>{item.initial}</span>
+                {item.image ? (
+                  <img src={item.image} alt={item.name} />
+                ) : (
+                  <span>{item.initial}</span>
+                )}
               </div>
               <h4 className="testimonios__card-title">{item.title}</h4>
               <p className="testimonios__quote">{item.quote}</p>

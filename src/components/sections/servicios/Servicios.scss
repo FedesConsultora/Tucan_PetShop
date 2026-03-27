@@ -4,15 +4,16 @@
   position: relative;
   overflow: visible;
   min-height: auto;
-  padding: 0px 0 100px;
+  padding: 0px 0 40px;
   background-color: white;
 
   /* Green decorative wave */
   .servicios-green-wave {
     position: absolute;
-    bottom: 0;
-    left: -5%;
-    width: 60%;
+    rotate: 20deg;
+    top: -25%;
+    left: 0%;
+    width: 110%;
     z-index: 1;
     pointer-events: none;
     opacity: 0.9;
@@ -58,12 +59,12 @@
       position: absolute;
       bottom: 16px;
       left: 18px;
-      font-family: $font-rockwell-bold;
-      font-size: 1.1rem;
+      font-family: $font-main;
+      font-weight: 500;
+      font-size: 2rem;
       color: white;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
       z-index: 2;
-      font-style: italic;
+
     }
 
     /* Subtle gradient overlay for text readability */
@@ -84,7 +85,7 @@
   .servicios-card--alimentos {
     grid-column: 1 / 3;
     grid-row: 1;
-    min-height: 240px;
+    max-height: 270px;
   }
 
   .servicios-card--cta {
@@ -97,7 +98,7 @@
     justify-content: center;
     padding: 30px 24px;
     text-align: center;
-    min-height: 240px;
+    max-height: 270px;
 
     /* No gradient overlay for CTA card */
     &::after {
@@ -105,8 +106,8 @@
     }
 
     h2 {
-      font-family: $font-rockwell-extrabold;
-      font-size: 1.8rem;
+      font-family: $font-rockwell-bold;
+      font-size: 2.3rem;
       color: white;
       line-height: 1;
       margin-bottom: 18px;
@@ -115,8 +116,8 @@
 
     .servicios-card__btn {
       display: inline-block;
-      background-color: white;
-      color: $dark-color;
+      background-color: $primary-red;
+      color: white;
       padding: 10px 22px;
       border-radius: 50px;
       text-decoration: none;
@@ -135,19 +136,19 @@
   .servicios-card--farmacia {
     grid-column: 1;
     grid-row: 2;
-    min-height: 220px;
+    max-height: 260px;
   }
 
   .servicios-card--accesorios {
     grid-column: 2;
     grid-row: 2;
-    min-height: 280px;
+    min-height: 360px;
   }
 
   .servicios-card--estetica {
     grid-column: 3;
     grid-row: 2;
-    min-height: 220px;
+    max-height: 160px;
   }
 }
 
@@ -183,6 +184,7 @@
     .servicios-card--farmacia {
       grid-column: 1;
       grid-row: 3;
+      max-height: 320px;
     }
 
     .servicios-card--accesorios {

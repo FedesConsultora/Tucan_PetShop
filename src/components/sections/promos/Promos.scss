@@ -10,16 +10,16 @@
 
   .promos-container {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 40px;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   /* ===================== LEFT SIDE ===================== */
   .promos-left {
-    flex: 0 0 320px;
+    flex: 0 0 340px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -27,11 +27,12 @@
   }
 
   .promos-image-wrapper {
-    width: 100%;
+    width: 130%;
     position: relative;
     z-index: 2;
 
     .promos-pic {
+      margin-top: -110px;
       width: 100%;
       height: auto;
       display: block;
@@ -43,17 +44,19 @@
   .promos-banner {
     background-color: $primary-yellow;
     border-radius: 20px;
-    padding: 28px 30px 24px;
+    width: 100%;
+    height: 300px;
+    margin-top: -2px;
+    padding: 44px 44px 30px;
     text-align: center;
-    margin-top: -50px;
     position: relative;
     z-index: 3;
-    width: 90%;
+
 
     h2 {
-      font-family: $font-rockwell-extrabold;
-      font-size: 1.8rem;
-      color: $dark-color;
+      font-family: $font-rockwell-bold;
+      font-size: 2.8rem;
+      color: white;
       line-height: 1;
       margin-bottom: 8px;
       text-transform: uppercase;
@@ -62,9 +65,9 @@
     .promos-date {
       font-family: $font-main;
       font-weight: 700;
-      font-size: 0.95rem;
-      color: $dark-color;
-      margin-bottom: 16px;
+      font-size: 1.2rem;
+      color: white;
+      padding: 20px;
       text-transform: uppercase;
     }
 
@@ -98,8 +101,11 @@
 
   .promo-card {
     background: white;
-    border-radius: 16px;
-    padding: 20px 24px;
+    align-items: center;
+    border-radius: 24px;
+    max-width: 360px;
+
+    padding: 28px 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     border: 1px solid #f0f0f0;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -131,6 +137,21 @@
       letter-spacing: 0.5px;
       white-space: nowrap;
 
+      &--pink {
+        background-color: #FE76B4;
+        color: white;
+      }
+
+      &--blue {
+        background-color: #25B4BD;
+        color: white;
+      }
+
+      &--purple {
+        background-color: #7659FF;
+        color: white;
+      }
+
       &--red {
         background-color: $primary-red;
         color: white;
@@ -138,11 +159,11 @@
 
       &--yellow {
         background-color: $primary-yellow;
-        color: $dark-color;
+        color: white;
       }
 
       &--green {
-        background-color: #4CAF50;
+        background-color: #00B486;
         color: white;
       }
     }
@@ -150,8 +171,8 @@
 
 
     &__title {
-      font-family: $font-rockwell-extrabold;
-      font-size: 1.6rem;
+      font-family: $font-rockwell-bold;
+      font-size: 2.8rem;
       color: $dark-color;
       line-height: 1;
       margin-bottom: 6px;
@@ -159,22 +180,23 @@
     }
 
     &__highlight {
-      font-family: $font-rockwell-bold;
+      font-family: $font-main;
+      font-weight: 700;
       font-size: 0.8rem;
       color: $dark-color;
-      line-height: 1.3;
+      line-height: 1;
 
       span {
         font-family: $font-main;
-        font-weight: 400;
-        color: #666;
+        font-weight: 500;
+        color: $dark-color;
       }
     }
 
     &__desc {
       font-size: 0.8rem;
-      color: #666;
-      line-height: 1.3;
+      font-weight: 500;
+      color: $dark-color;
     }
   }
 }

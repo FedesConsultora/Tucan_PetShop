@@ -2,58 +2,51 @@
 
 .inicio-section {
   background-color: white;
-  min-height: 100vh;
-  padding: 0;
+  margin: 16px 24px 0;
+  padding: 0px;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 24px;
+
+  // Use the background image with text baked in
+  background-image: url('../../../assets/img/background-com.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  // Maintain aspect ratio matching the image proportions
+  // Slightly taller (880 instead of 820) to give room for the button
+  aspect-ratio: 1440 / 880;
+  min-height: unset;
 
   .hero-container {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    align-items: stretch;
-    min-height: 100vh;
-  }
-
-  .hero-content {
-    flex: 0 0 40%;
-    max-width: 40%;
-    padding: 0 0 80px 80px;
+    position: absolute;
+    bottom: 1.7%;
+    left: 2%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    z-index: 100;
+    gap: 12px;
+    max-width: 40%;
 
-    h1 {
-      font-family: $font-rockwell-extrabold;
-      font-size: 4.5rem;
-      color: $primary-yellow;
-      line-height: 0.88;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      letter-spacing: -2px;
-
-      span {
-        color: #1E1E1E;
-        display: block;
-        font-size: 3.5rem;
-        margin-top: 10px;
-      }
+    .hero-text {
+      display: none; // hidden on desktop — text is in the background image
     }
 
     .cta-btn {
       align-self: flex-start;
+      font-family: $font-main;
       background-color: $primary-red;
       color: white;
-      padding: 14px 30px;
+      padding: 8px 22px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.85rem;
       border: 2px solid $primary-red;
-      box-shadow: 0 8px 20px rgba($primary-red, 0.25);
+      cursor: pointer;
+
       transition: all 0.3s ease;
 
       &:hover {
@@ -63,58 +56,57 @@
       }
     }
   }
-
-  .hero-image-wrapper {
-    flex: 0 0 60%;
-    max-width: 60%;
-    position: relative;
-    padding: 100px 0 0 0;
-
-    .hero-pic {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0 0 0 80px;
-      display: block;
-      box-shadow: -10px 20px 60px rgba(0, 0, 0, 0.12);
-    }
-  }
 }
 
 /* ========== Tablet ========== */
 @media (max-width: 991px) {
   .inicio-section {
+    margin: 16px 16px 0;
+    aspect-ratio: unset;
     min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 20px;
+    overflow: hidden;
+
+    // Use the photo-only version as an <img> would be better,
+    // but since background, keep it and add a set height
+    background-image: url('../../../assets/img/hero-pic.png');
+    background-size: 100% auto;
+    background-position: center top;
 
     .hero-container {
-      flex-direction: column-reverse;
-      min-height: auto;
-    }
-
-    .hero-content {
-      flex: none;
+      position: relative;
+      bottom: unset;
+      left: unset;
       max-width: 100%;
-      padding: 40px 30px 60px 30px;
-      justify-content: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 62vw; // Increased to show more of the photo
+      padding: 0 30px 40px;
+      background-color: white;
 
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 30px;
+      .hero-text {
+        display: block;
+        font-family: $font-rockwell-extrabold;
+        font-size: 2.2rem; // Slightly smaller to be more balanced
+        line-height: 1.2;
+        margin-bottom: 2px;
 
-        span {
-          font-size: 2.4rem;
+        .hero-text--yellow {
+          display: block;
+          color: $primary-yellow;
+        }
+
+        .hero-text--dark {
+          display: block;
+          color: $dark-color;
         }
       }
-    }
 
-    .hero-image-wrapper {
-      flex: none;
-      max-width: 100%;
-      padding: 80px 0 0 0;
-
-      .hero-pic {
-        border-radius: 0 0 0 60px;
-        max-height: 50vh;
+      .cta-btn {
+        margin-top: 4px;
       }
     }
   }
@@ -123,29 +115,23 @@
 /* ========== Mobile ========== */
 @media (max-width: 576px) {
   .inicio-section {
-    .hero-content {
-      padding: 30px 20px 50px;
+    margin: 12px 12px 0;
+    border-radius: 16px;
 
-      h1 {
-        font-size: 2.4rem;
+    background-size: 100% auto;
+    background-position: center top;
 
-        span {
-          font-size: 1.9rem;
-        }
+    .hero-container {
+      margin-top: 55vw;
+      padding: 24px 20px 32px;
+
+      .hero-text {
+        font-size: 1.8rem;
       }
 
       .cta-btn {
         font-size: 0.8rem;
         padding: 12px 24px;
-      }
-    }
-
-    .hero-image-wrapper {
-      padding: 70px 0 0 0;
-
-      .hero-pic {
-        border-radius: 0 0 0 40px;
-        max-height: 40vh;
       }
     }
   }
