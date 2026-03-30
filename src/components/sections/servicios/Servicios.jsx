@@ -1,17 +1,43 @@
+import { useEffect, useRef, useState } from 'react';
 import './Servicios.scss';
 import FeedImg from '../../../assets/img/feed.png';
 import AccesoriesImg from '../../../assets/img/accesories.png';
-import FarmaciaImg from '../../../assets/img/farmacia.png';
+import FarmaciaImg from '../../../assets/img/farmacia-veterinaria.png';
 import EsteticaImg from '../../../assets/img/estetica.png';
 import VGreen from '../../../assets/img/v-green.png';
 
 const Servicios = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Toggle visibility based on intersection status
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15, // Trigger slightly earlier for better feel
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="servicios" className="servicios-section">
+    <section id="servicios" className="servicios-section" ref={sectionRef}>
       {/* Decorative green curve */}
       <img src={VGreen} alt="" className="servicios-green-wave" aria-hidden="true" />
 
-      <div className="servicios-container">
+      <div className={`servicios-container ${isVisible ? 'is-visible' : ''}`}>
         {/* Bento grid */}
         <div className="servicios-grid">
           {/* Card 1 – Alimentos (large, top-left) */}

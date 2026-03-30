@@ -52,43 +52,72 @@ const testimoniosData = [
 ];
 
 const Testimonios = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const dataLength = testimoniosData.length;
+  // Triplicate the data: [Set 1, Set 2 (Middle), Set 3]
+  const extendedData = [
+    ...testimoniosData,
+    ...testimoniosData,
+    ...testimoniosData,
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(dataLength); // Start at the beginning of the middle set
   const [isPaused, setIsPaused] = useState(false);
+  const [hasTransition, setHasTransition] = useState(true);
   const trackRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const totalSlides = testimoniosData.length;
+  const totalSlides = extendedData.length;
 
-  const goTo = useCallback(
-    (index) => {
-      let newIndex = index;
-      if (newIndex < 0) newIndex = totalSlides - 1;
-      if (newIndex >= totalSlides) newIndex = 0;
-      setCurrentIndex(newIndex);
-    },
-    [totalSlides]
-  );
+  const handleJump = useCallback(() => {
+    // If we've moved into the first set, jump to the same item in the middle set
+    if (currentIndex < dataLength) {
+      setHasTransition(false);
+      setCurrentIndex(currentIndex + dataLength);
+    } 
+    // If we've moved into the last set, jump to the same item in the middle set
+    else if (currentIndex >= dataLength * 2) {
+      setHasTransition(false);
+      setCurrentIndex(currentIndex - dataLength);
+    }
+  }, [currentIndex, dataLength]);
 
-  const goNext = useCallback(() => goTo(currentIndex + 1), [currentIndex, goTo]);
-  const goPrev = useCallback(() => goTo(currentIndex - 1), [currentIndex, goTo]);
+  // Reset transition after jumping
+  useEffect(() => {
+    if (!hasTransition) {
+      const raf = requestAnimationFrame(() => {
+        setHasTransition(true);
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [hasTransition]);
 
-  // Auto-scroll
+  const goNext = useCallback(() => {
+    if (!hasTransition) return;
+    setCurrentIndex((prev) => prev + 1);
+  }, [hasTransition]);
+
+  const goPrev = useCallback(() => {
+    if (!hasTransition) return;
+    setCurrentIndex((prev) => prev - 1);
+  }, [hasTransition]);
+
+  const handleArrowClick = (direction) => {
+    setIsPaused(true);
+    if (direction === 'next') goNext();
+    else goPrev();
+  };
+
+  // Autoplay
   useEffect(() => {
     if (isPaused) return;
     intervalRef.current = setInterval(() => {
       goNext();
-    }, 4000);
+    }, 4500);
     return () => clearInterval(intervalRef.current);
   }, [isPaused, goNext]);
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
-
-  // Calculate translate for centered view showing partial cards on sides
-  const getTranslateX = () => {
-    // Each card ~320px + gap 24px, we center the active card
-    return `calc(50% - ${currentIndex * 344}px - 160px)`;
-  };
 
   return (
     <div className="testimonios" id="testimonios">
@@ -98,48 +127,54 @@ const Testimonios = () => {
         onMouseLeave={handleMouseLeave}
       >
         <div
-          className="testimonios__track"
+          className={`testimonios__track ${!hasTransition ? 'testimonios__track--no-transition' : ''}`}
           ref={trackRef}
-          style={{ transform: `translateX(${getTranslateX()})` }}
+          onTransitionEnd={handleJump}
+          style={{ 
+            // The centering formula remains robust: Shift track by (index * totalWidth + halfCard)
+            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 480px) + var(--card-gap, 24px)) + (var(--card-width, 480px) / 2))))` 
+          }}
         >
-          {testimoniosData.map((item, index) => (
-            <div
-              className={`testimonios__card ${index === currentIndex ? 'testimonios__card--active' : ''
-                }`}
-              key={index}
-            >
-              <div className="testimonios__avatar">
-                {item.image ? (
-                  <img src={item.image} alt={item.name} />
-                ) : (
-                  <span>{item.initial}</span>
-                )}
+          {extendedData.map((item, index) => {
+            // Highlight the visual active card (the one in the middle of current view)
+            const isActive = index === currentIndex;
+
+            return (
+              <div
+                className={`testimonios__card ${isActive ? 'testimonios__card--active' : ''}`}
+                key={index}
+              >
+                <div className="testimonios__avatar">
+                  {item.image ? (
+                    <img src={item.image} alt={item.name} />
+                  ) : (
+                    <span>{item.initial}</span>
+                  )}
+                </div>
+                <h4 className="testimonios__card-title">{item.title}</h4>
+                <p className="testimonios__quote">{item.quote}</p>
+                <p className="testimonios__author">— {item.name}</p>
               </div>
-              <h4 className="testimonios__card-title">{item.title}</h4>
-              <p className="testimonios__quote">{item.quote}</p>
-              <p className="testimonios__author">— {item.name}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       {/* Navigation arrows */}
       <button
         className="testimonios__arrow testimonios__arrow--left"
-        onClick={goPrev}
+        onClick={() => handleArrowClick('prev')}
         aria-label="Anterior"
       >
         ‹
       </button>
       <button
         className="testimonios__arrow testimonios__arrow--right"
-        onClick={goNext}
+        onClick={() => handleArrowClick('next')}
         aria-label="Siguiente"
       >
         ›
       </button>
-
-
     </div>
   );
 };

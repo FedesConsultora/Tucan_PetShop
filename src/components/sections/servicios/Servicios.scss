@@ -7,6 +7,8 @@
   padding: 0px 0 40px;
   background-color: white;
 
+
+
   /* Green decorative wave */
   .servicios-green-wave {
     position: absolute;
@@ -16,15 +18,16 @@
     width: 110%;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 1;
   }
 
   .servicios-container {
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 0 40px;
     position: relative;
     z-index: 2;
+    transform: scale(.75);
   }
 
   /* ===================== BENTO GRID ===================== */
@@ -32,7 +35,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto auto;
-    gap: 20px;
+    gap: 1rem;
 
     /*   LAYOUT MAP (desktop - 12 cols):
      *   Top: [alimentos (7)] [cta (4)] [empty (1)]   -> 11 total
@@ -46,12 +49,22 @@
     border-radius: 20px;
     overflow: hidden;
     min-height: 200px;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
 
     &__img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        transform: scale(1.06);
+      }
+
     }
 
     &__label {
@@ -80,13 +93,15 @@
     }
   }
 
-  /* ---- Individual card positions ---- */
+  /* ---- Individual card positions & Animations ---- */
   .servicios-card--alimentos {
     grid-column: 1 / 8;
     margin-left: 32px;
     grid-row: 1;
     height: 290px; // Slightly taller as per design
     max-height: none;
+    transform: translateX(-300px);
+    transition-delay: 0.1s;
   }
 
   .servicios-card--cta {
@@ -102,6 +117,8 @@
     text-align: center;
     height: 290px;
     max-height: none;
+    transform: translateX(300px);
+    transition-delay: 0.2s;
 
     /* No gradient overlay for CTA card */
     &::after {
@@ -139,15 +156,19 @@
   .servicios-card--farmacia {
     grid-column: 1 / 5;
     grid-row: 2;
-    height: 380px;
+    height: 22rem;
     max-height: none;
+    transform: translateX(-300px);
+    transition-delay: 0.3s;
   }
 
   .servicios-card--accesorios {
     grid-column: 5 / 9;
     grid-row: 2;
-    height: 520px; // Particularly tall card
+    height: 26rem;
     min-height: none;
+    transform: translateY(300px);
+    transition-delay: 0.4s;
   }
 
   .servicios-card--estetica {
@@ -156,6 +177,16 @@
     height: 240px;
     max-height: none;
     align-self: flex-start; // Sits at the top of the row
+    transform: translateX(300px);
+    transition-delay: 0.5s;
+  }
+
+  /* Trigger animations when container is visible */
+  .is-visible {
+    .servicios-card {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
   }
 }
 

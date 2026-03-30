@@ -13,13 +13,14 @@
   // Use the background image with text baked in
   background-image: url('../../../assets/img/background-com.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center bottom;
   background-repeat: no-repeat;
 
-  // Maintain aspect ratio matching the image proportions
-  // Slightly taller (880 instead of 820) to give room for the button
-  aspect-ratio: 1440 / 880;
-  min-height: unset;
+  // Use the SMALLER of: viewport height OR image's natural height at current width.
+  // This ensures NO cropping when the viewport is tall enough,
+  // and minimal top cropping only on short/wide viewports.
+  height: min(calc(100vh - 32px), calc((100vw - 48px) * 898 / 1462));
+
 
   .hero-container {
     position: absolute;
@@ -50,16 +51,15 @@
       transition: all 0.3s ease;
 
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba($primary-red, 0.35);
-        filter: brightness(1.1);
+        transform: scale(1.1);
+        transition: all 0.3s ease;
       }
     }
   }
 }
 
 /* ========== Tablet ========== */
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
   .inicio-section {
     margin: 16px 16px 0;
     aspect-ratio: unset;
@@ -113,7 +113,7 @@
 }
 
 /* ========== Mobile ========== */
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
   .inicio-section {
     margin: 12px 12px 0;
     border-radius: 16px;
