@@ -6,11 +6,11 @@
   z-index: 1;
   min-height: auto;
   padding: 80px 0 30px;
-  background-color: white;
+  background-color: transparent;
   transform: scale(.82);
 
   .promos-container {
-
+    background-color: transparent;
     display: flex;
     align-items: flex-end;
     gap: 10rem;

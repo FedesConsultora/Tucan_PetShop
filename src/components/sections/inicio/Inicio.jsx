@@ -1,4 +1,5 @@
 import './Inicio.scss';
+import vRed from '../../../assets/img/v-red.png';
 
 const Inicio = () => {
   return (
@@ -12,6 +13,8 @@ const Inicio = () => {
           ¡Hacer mi pedido ahora!
         </button>
       </div>
+
+      <img src={vRed} alt="" className="hero-red-curve" aria-hidden="true" />
     </section>
   );
 };

@@ -2,49 +2,47 @@
 
 .inicio-section {
   background-color: white;
-  margin: 16px 24px 0;
+  margin: 16px;
   padding: 0px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 24px;
-
-  // Use the background image with text baked in
   background-image: url('../../../assets/img/background-com.png');
   background-size: cover;
-  background-position: center bottom;
+  background-position: bottom;
+
   background-repeat: no-repeat;
 
-  // Use the SMALLER of: viewport height OR image's natural height at current width.
-  // This ensures NO cropping when the viewport is tall enough,
-  // and minimal top cropping only on short/wide viewports.
+
   height: min(calc(100vh - 32px), calc((100vw - 48px) * 898 / 1462));
 
 
   .hero-container {
     position: absolute;
-    bottom: 1.7%;
+    bottom: 2%; // Moved up to match design better
     left: 2%;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    max-width: 40%;
+    max-width: 100%;
 
     .hero-text {
       display: none; // hidden on desktop — text is in the background image
     }
 
     .cta-btn {
-      align-self: flex-start;
+      align-self: flex-end;
       font-family: $font-main;
       background-color: $primary-red;
+
       color: white;
-      padding: 8px 22px;
+      padding: 14px 34px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 1.2rem;
       border: 2px solid $primary-red;
       cursor: pointer;
 
@@ -55,6 +53,17 @@
         transition: all 0.3s ease;
       }
     }
+  }
+
+  .hero-red-curve {
+    position: absolute;
+    top: 45%;
+    right: -1%;
+    width: 105%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
+
   }
 }
 
