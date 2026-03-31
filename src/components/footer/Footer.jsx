@@ -1,8 +1,29 @@
+import { useState } from 'react';
 import './Footer.scss';
 import Testimonios from '../sections/testimonios/Testimonios';
 import Logo2 from '../../assets/img/logo-2.png';
 
 const Footer = () => {
+  const [mapUrl, setMapUrl] = useState("https://www.google.com/maps/d/u/0/embed?mid=1TbN9jFojVaEFzMfSoK7zYTYg99NZ_sU&ehbc=2E312F&noprof=1");
+
+  const locations = [
+    {
+      name: "Camino Belgrano y 516",
+      fullAddress: "1558 RP1, B1902 Gonnet, Provincia de Buenos Aires +54 221 539-9399",
+      embedUrl: "https://www.google.com/maps/d/u/0/embed?mid=1TbN9jFojVaEFzMfSoK7zYTYg99NZ_sU&ehbc=2E312F&noprof=1&ll=-34.893770, -58.008701&z=17"
+    },
+    {
+      name: "32 e/ 6 y 7",
+      fullAddress: "Av. 32 560, B1900 La Plata, Provincia de Buenos Aires",
+      embedUrl: "https://www.google.com/maps/d/u/0/embed?mid=1TbN9jFojVaEFzMfSoK7zYTYg99NZ_sU&ehbc=2E312F&noprof=1&ll=-34.898283,-57.981124&z=17"
+    },
+    {
+      name: "18 esq. 50",
+      fullAddress: "B1900ATS, C. 50 1143-1149, B1900ATS La Plata, Provincia de Buenos Aires",
+      embedUrl: "https://www.google.com/maps/d/u/0/embed?mid=1TbN9jFojVaEFzMfSoK7zYTYg99NZ_sU&ehbc=2E312F&noprof=1&ll=-34.923331,-57.974149&z=17"
+    }
+  ];
+
   return (
     <footer className="footer" id="footer">
       {/* Testimonios slider sits on top of footer */}
@@ -20,7 +41,7 @@ const Footer = () => {
               </div>
               <div className="footer__map-iframe-wrapper">
                 <iframe 
-                  src="https://www.google.com/maps/d/u/0/embed?mid=1TbN9jFojVaEFzMfSoK7zYTYg99NZ_sU&ehbc=2E312F&noprof=1" 
+                  src={mapUrl} 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }}
@@ -58,6 +79,25 @@ const Footer = () => {
                 </svg>
                 <span>tucanpetshop@gmail.com</span>
               </a>
+
+              {/* Separator or title for locations could go here if needed */}
+              <div className="footer__locations">
+                {locations.map((loc, index) => (
+                  <div 
+                    key={index} 
+                    className={`footer__contact-item footer__location-item ${mapUrl === loc.embedUrl ? 'is-active' : ''}`}
+                    onClick={() => setMapUrl(loc.embedUrl)}
+                  >
+                    <svg className="footer__icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    <div className="footer__location-text">
+                      <span className="footer__location-name">{loc.name}</span>
+                      <span className="footer__location-address">{loc.fullAddress}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

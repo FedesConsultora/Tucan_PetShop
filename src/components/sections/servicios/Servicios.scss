@@ -27,7 +27,7 @@
     padding: 0 40px;
     position: relative;
     z-index: 2;
-    transform: scale(.75);
+    transform: scale(.82);
   }
 
   /* ===================== BENTO GRID ===================== */
@@ -148,7 +148,7 @@
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
       }
     }
   }
@@ -174,19 +174,32 @@
   .servicios-card--estetica {
     grid-column: 9 / 13;
     grid-row: 2;
-    height: 240px;
+    height: 120px;
+
     max-height: none;
     align-self: flex-start; // Sits at the top of the row
     transform: translateX(300px);
     transition-delay: 0.5s;
+
+    .servicios-card__img {
+      object-position: 0%;
+
+    }
+
+    .servicios-card__label {
+      font-size: 1.5rem;
+      bottom: 8px;
+      left: 14px;
+    }
+
+
+
   }
 
-  /* Trigger animations when container is visible */
-  .is-visible {
-    .servicios-card {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
+  /* Trigger animations when card is in view */
+  .is-in-view {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
   }
 }
 
@@ -248,35 +261,62 @@
     padding: 40px 0 60px;
 
     .servicios-container {
-      padding: 0 16px;
+      padding: 0 20px;
     }
 
     .servicios-grid {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
-      gap: 14px;
+      gap: 20px;
+      justify-items: center;
     }
 
-    .servicios-card--alimentos,
-    .servicios-card--cta,
-    .servicios-card--farmacia,
-    .servicios-card--accesorios,
-    .servicios-card--estetica {
-      grid-column: 1;
-      grid-row: auto;
-      min-height: 200px;
-    }
+    .servicios-card {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      height: auto !important;
+      min-height: unset !important;
+      margin: 0 auto !important;
+      grid-column: 1 !important;
+      grid-row: auto !important;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 0s !important; // Animated individually on scroll
 
-    .servicios-card--cta {
-      min-height: 160px;
+      // Alternating slide-in animations for mobile
+      &:nth-child(odd) {
+        transform: translateX(-100px);
+      }
 
-      h2 {
+      &:nth-child(even) {
+        transform: translateX(100px);
+      }
+
+      &__label {
         font-size: 1.4rem;
+        bottom: 12px;
+        left: 14px;
+      }
+
+      &--cta {
+        padding: 20px;
+
+        h2 {
+          font-size: 1.8rem;
+          margin-bottom: 12px;
+        }
+
+        .servicios-card__btn {
+          font-size: 0.85rem;
+          padding: 10px 20px;
+        }
       }
     }
 
     .servicios-green-wave {
       width: 100%;
+      top: -15%;
     }
   }
 }

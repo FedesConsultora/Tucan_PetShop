@@ -3,33 +3,32 @@ import './Servicios.scss';
 import FeedImg from '../../../assets/img/feed.png';
 import AccesoriesImg from '../../../assets/img/accesories.png';
 import FarmaciaImg from '../../../assets/img/farmacia-veterinaria.png';
-import EsteticaImg from '../../../assets/img/estetica.png';
+import EsteticaImg from '../../../assets/img/estetica-cuidado.png';
 import VGreen from '../../../assets/img/v-green.png';
 
 const Servicios = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Toggle visibility based on intersection status
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.15, // Trigger slightly earlier for better feel
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px' // Slightly offset for better entry feel
     };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+        } else {
+          entry.target.classList.remove('is-in-view');
+        }
+      });
+    }, observerOptions);
+
+    const cardElements = document.querySelectorAll('.servicios-card');
+    cardElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -37,7 +36,7 @@ const Servicios = () => {
       {/* Decorative green curve */}
       <img src={VGreen} alt="" className="servicios-green-wave" aria-hidden="true" />
 
-      <div className={`servicios-container ${isVisible ? 'is-visible' : ''}`}>
+      <div className="servicios-container">
         {/* Bento grid */}
         <div className="servicios-grid">
           {/* Card 1 – Alimentos (large, top-left) */}
@@ -52,7 +51,14 @@ const Servicios = () => {
               TODO PARA<br />
               SU BIENESTAR
             </h2>
-            <a href="#promos" className="servicios-card__btn">¡Hacer mi pedido ahora!</a>
+            <a
+              href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="servicios-card__btn"
+            >
+              ¡Hacer mi pedido ahora!
+            </a>
           </div>
 
           {/* Card 3 – Farmacia Veterinaria (bottom-left) */}

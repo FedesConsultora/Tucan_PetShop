@@ -115,6 +115,14 @@
     .ventajas-mascot {
       flex: none;
       width: 200px;
+
+      &__video {
+        display: block;
+        width: 100%;
+        transform: scale(1.2);
+        height: auto;
+        object-fit: contain;
+      }
     }
 
     .ventajas-content {

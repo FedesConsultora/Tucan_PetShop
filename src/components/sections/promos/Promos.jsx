@@ -72,7 +72,14 @@ const Promos = () => {
               BANCARIAS
             </h2>
             <p className="promos-date">MARZO 2026</p>
-            <a href="#promos" className="promos-cta">¡Hacer mi pedido ahora!</a>
+            <a 
+              href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="promos-cta"
+            >
+              ¡Hacer mi pedido ahora!
+            </a>
           </div>
         </div>
 

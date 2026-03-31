@@ -8,49 +8,73 @@
   align-items: center;
   position: relative;
   overflow: visible;
-  border-radius: 24px;
-  background-image: url('../../../assets/img/background-com.png');
+  border-radius: 16px;
+  background-image: url('../../../assets/img/hero-pic.png');
   background-size: cover;
-  background-position: bottom;
-
+  background-position: center;
   background-repeat: no-repeat;
-
-
-  height: min(calc(100vh - 32px), calc((100vw - 48px) * 898 / 1462));
+  height: min(calc(100vh - 32px), 800px);
+  min-height: 600px;
 
 
   .hero-container {
     position: absolute;
-    bottom: 2%; // Moved up to match design better
-    left: 2%;
+    bottom: 16px;
+    left: 16px;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    padding: 40px 32px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
 
     .hero-text {
-      display: none; // hidden on desktop — text is in the background image
+      display: block;
+      font-family: $font-rockwell-bold;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      font-size: 3rem;
+      margin: 0;
+
+      line-height: -2px !important;
+
+
+
+      .hero-text--yellow {
+        color: $primary-yellow;
+        line-height: -2px !important;
+      }
+
+      .hero-text--dark {
+        color: $dark-color;
+        line-height: -2px !important;
+      }
     }
 
     .cta-btn {
-      align-self: flex-end;
+      align-self: flex-start;
       font-family: $font-main;
       background-color: $primary-red;
-
       color: white;
       padding: 14px 34px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.2rem;
-      border: 2px solid $primary-red;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
       cursor: pointer;
-
+      margin-top: 1.5rem;
       transition: all 0.3s ease;
 
       &:hover {
-        transform: scale(1.1);
-        transition: all 0.3s ease;
+        background-color: darken($primary-red, 5%);
+        transform: translateY(-2px);
       }
     }
   }
@@ -71,51 +95,32 @@
 @media screen and (max-width: 991px) {
   .inicio-section {
     margin: 16px 16px 0;
-    aspect-ratio: unset;
+    height: auto;
     min-height: auto;
     flex-direction: column;
-    align-items: stretch;
-    border-radius: 20px;
-    overflow: hidden;
-
-    // Use the photo-only version as an <img> would be better,
-    // but since background, keep it and add a set height
-    background-image: url('../../../assets/img/hero-pic.png');
-    background-size: 100% auto;
+    border-radius: 16px;
     background-position: center top;
 
     .hero-container {
       position: relative;
       bottom: unset;
       left: unset;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 62vw; // Increased to show more of the photo
-      padding: 0 30px 40px;
-      background-color: white;
+      width: 100%;
+      height: auto;
+      min-height: unset;
+      margin-top: 60vw;
+      padding: 30px;
+      box-shadow: none;
+      border-radius: 0 0 16px 16px;
 
       .hero-text {
-        display: block;
-        font-family: $font-rockwell-extrabold;
-        font-size: 2.2rem; // Slightly smaller to be more balanced
-        line-height: 1.2;
-        margin-bottom: 2px;
-
-        .hero-text--yellow {
-          display: block;
-          color: $primary-yellow;
-        }
-
-        .hero-text--dark {
-          display: block;
-          color: $dark-color;
-        }
+        font-size: 2.2rem;
+        margin-bottom: 20px;
       }
 
       .cta-btn {
-        margin-top: 4px;
+        width: 100%;
+        text-align: center;
       }
     }
   }
@@ -125,21 +130,17 @@
 @media screen and (max-width: 576px) {
   .inicio-section {
     margin: 12px 12px 0;
-    border-radius: 16px;
-
-    background-size: 100% auto;
-    background-position: center top;
 
     .hero-container {
-      margin-top: 55vw;
-      padding: 24px 20px 32px;
+      margin-top: 50vw;
+      padding: 24px 20px;
 
       .hero-text {
         font-size: 1.8rem;
       }
 
       .cta-btn {
-        font-size: 0.8rem;
+        font-size: 1rem;
         padding: 12px 24px;
       }
     }

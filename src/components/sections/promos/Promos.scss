@@ -7,7 +7,7 @@
   min-height: auto;
   padding: 80px 0 30px;
   background-color: transparent;
-  transform: scale(.82);
+  transform: scale(.92);
 
   .promos-container {
     background-color: transparent;
@@ -180,6 +180,11 @@
       line-height: 1;
       margin-bottom: 6px;
       text-transform: uppercase;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     &__highlight {
@@ -228,6 +233,12 @@
     }
 
     .promo-card {
+      padding: 28px 20px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       &__title {
         font-size: 1.35rem;
       }
@@ -245,32 +256,66 @@
       gap: 24px;
     }
 
-    .promos-left {
-      max-width: 280px;
-    }
 
     .promos-banner {
-      padding: 20px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 28px;
+
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 2.4rem;
       }
 
       .promos-date {
-        font-size: 0.85rem;
+        font-size: 1rem;
       }
     }
 
     .promos-grid {
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 20px;
+      justify-items: center; // Center the cards in the single column
     }
 
     .promo-card {
-      padding: 16px 18px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      aspect-ratio: 1.2 / 1;
+      width: 100%;
+      max-width: 300px; // Limit width to prevent it from becoming a wide rectangle
+      justify-content: center;
+      margin: 0 auto;
+
+      &__header {
+
+        gap: 8px;
+        justify-content: flex-start; // Center header content
+      }
+
+      &__bank-logo {
+        height: 24px;
+      }
+
+      &__day-pill {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+      }
 
       &__title {
-        font-size: 1.4rem;
+        font-size: 2rem; // Larger text
+        margin-bottom: .5rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      &__highlight,
+      &__desc {
+        font-size: 1rem; // Larger text
+        text-align: center;
       }
     }
   }
