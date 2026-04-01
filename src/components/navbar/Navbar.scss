@@ -38,13 +38,27 @@
     display: flex;
     align-items: center;
 
-    img {
+    .logo-desktop {
+      display: block;
       margin-top: .2rem;
       height: 22px;
       width: auto;
-
       object-fit: contain;
-      display: block;
+
+      @media (max-width: 991px) {
+        display: none;
+      }
+    }
+
+    .logo-mobile {
+      display: none;
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+
+      @media (max-width: 991px) {
+        display: block;
+      }
     }
   }
 
@@ -261,12 +275,6 @@
 
     &__burger {
       display: flex;
-    }
-
-    &__logo img {
-      height: 44px;
-      max-width: 160px;
-      object-fit: contain;
     }
   }
 }

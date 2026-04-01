@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import './Navbar.scss';
-import Logo from '../../assets/img/logo.png';
+import LogoPNG from '../../assets/img/logo.png';
+import LogoSVG from '../../assets/img/logo.svg';
 
 const navItems = [
   { id: 'inicio',      label: 'Inicio' },
@@ -68,7 +69,8 @@ const Navbar = () => {
 
           {/* Logo */}
           <button className="navbar__logo" onClick={() => scrollTo('inicio')} aria-label="Ir al inicio">
-            <img src={Logo} alt="Tucán PetShop" />
+            <img src={LogoPNG} alt="Tucán PetShop" className="logo-desktop" />
+            <img src={LogoSVG} alt="Tucán PetShop" className="logo-mobile" />
           </button>
 
           {/* Desktop links */}
@@ -107,7 +109,7 @@ const Navbar = () => {
         aria-label="Menú de navegación"
       >
         <div className="nav-drawer__header">
-          <img src={Logo} alt="Tucán PetShop" className="nav-drawer__logo" />
+          <img src={LogoSVG} alt="Tucán PetShop" className="nav-drawer__logo" />
           <button
             className="nav-drawer__close"
             onClick={() => setMenuOpen(false)}
