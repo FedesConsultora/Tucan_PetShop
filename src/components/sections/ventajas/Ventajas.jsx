@@ -1,5 +1,6 @@
 import './Ventajas.scss';
 import VPurple from '../../../assets/img/v-purple.png';
+import Dog3dVideo from '../../../assets/img/dog-3d.mp4';
 
 const ventajasData = [
   {
@@ -33,7 +34,7 @@ const Ventajas = () => {
               playsInline
               className="ventajas-mascot__video"
             >
-              <source src="/src/assets/img/dog-3d.mp4" type="video/mp4" />
+              <source src={Dog3dVideo} type="video/mp4" />
             </video>
           </div>
 

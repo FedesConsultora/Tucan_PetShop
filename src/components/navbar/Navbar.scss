@@ -39,8 +39,11 @@
     align-items: center;
 
     img {
-      height: 32px;
+      margin-top: .2rem;
+      height: 22px;
       width: auto;
+
+      object-fit: contain;
       display: block;
     }
   }
@@ -261,7 +264,9 @@
     }
 
     &__logo img {
-      height: 50px;
+      height: 44px;
+      max-width: 160px;
+      object-fit: contain;
     }
   }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import './Navbar.scss';
-import Logo from '../../assets/img/logo.svg';
+import Logo from '../../assets/img/logo.png';
 
 const navItems = [
   { id: 'inicio',      label: 'Inicio' },
