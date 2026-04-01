@@ -1,3 +1,4 @@
+@use "sass:color";
 @use '../../../scss/variables' as *;
 
 .inicio-section {
@@ -83,7 +84,7 @@
       animation: fadeInUp 0.8s ease forwards 2.8s, pulse-subtle 1.5s infinite ease-in-out 3.6s;
 
       &:hover {
-        background-color: darken($primary-red, 5%);
+        background-color: color.adjust($primary-red, $lightness: -5%);
         transform: translateY(-2px);
         animation-play-state: paused; // Pause pulse on hover so it doesn't conflict with transform
       }
@@ -199,11 +200,10 @@
       margin-bottom: -4px;
       align-items: center;
       display: flex;
-
       flex-direction: column;
 
       .hero-text {
-        font-size: 1.5rem;
+        font-size: 2rem;
         text-align: center;
 
       }
@@ -211,8 +211,9 @@
       .cta-btn {
         font-size: 0.95rem;
         font-weight: 500;
-        margin-top: 2px;
-        padding: 12px 16px;
+
+        padding: 8px 4px;
+
       }
     }
   }

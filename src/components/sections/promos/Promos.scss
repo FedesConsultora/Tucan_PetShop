@@ -1,3 +1,4 @@
+@use "sass:color";
 @use '../../../scss/variables' as *;
 
 .promos-section {
@@ -90,7 +91,7 @@
 
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba($primary-red, 0.3);
+        box-shadow: 0 8px 20px color.change($primary-red, $alpha: 0.3);
         filter: brightness(1.1);
         animation-play-state: paused;
       }
