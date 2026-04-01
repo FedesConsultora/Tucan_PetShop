@@ -100,7 +100,7 @@
     grid-row: 1;
     height: 290px; // Slightly taller as per design
     max-height: none;
-    transform: translateX(-300px);
+    transform: translateX(-100px);
     transition-delay: 0.1s;
   }
 
@@ -117,7 +117,7 @@
     text-align: center;
     height: 290px;
     max-height: none;
-    transform: translateX(300px);
+    transform: translateX(100px);
     transition-delay: 0.2s;
 
     /* No gradient overlay for CTA card */
@@ -157,7 +157,7 @@
     grid-row: 2;
     height: 22rem;
     max-height: none;
-    transform: translateX(-300px);
+    transform: translateX(-100px);
     transition-delay: 0.3s;
   }
 
@@ -166,7 +166,7 @@
     grid-row: 2;
     height: 26rem;
     min-height: none;
-    transform: translateY(300px);
+    transform: translateY(100px);
     transition-delay: 0.4s;
   }
 
@@ -177,7 +177,7 @@
 
     max-height: none;
     align-self: flex-start; // Sits at the top of the row
-    transform: translateX(300px);
+    transform: translateX(100px);
     transition-delay: 0.5s;
 
     .servicios-card__img {
@@ -321,7 +321,7 @@
 
 
       &__label {
-        font-size: 1.4rem;
+        font-size: 1rem;
         bottom: 12px;
         left: 14px;
       }
@@ -330,11 +330,13 @@
         padding: 20px;
 
         h2 {
-          font-size: 1.8rem;
-          margin-bottom: 12px;
+          font-family: $font-rockwell-bold;
+          font-size: 2.5rem !important;
+          margin-bottom: 24px;
         }
 
         .servicios-card__btn {
+          margin-top: 24px;
           font-size: 0.85rem;
           padding: 10px 20px;
         }
