@@ -51,7 +51,7 @@
         line-height: -2px !important;
         opacity: 0;
         animation: fadeInUp 0.8s ease forwards;
-        animation-delay: 3s;
+        animation-delay: 1.2s;
         display: inline-block;
       }
 
@@ -60,7 +60,7 @@
         line-height: -2px !important;
         opacity: 0;
         animation: fadeInUp 0.8s ease forwards;
-        animation-delay: 4s;
+        animation-delay: 2s;
         display: inline-block;
       }
     }
@@ -80,7 +80,7 @@
       margin-top: 1.5rem;
       transition: all 0.3s ease;
       opacity: 0;
-      animation: fadeInUp 0.8s ease forwards 5s, pulse-subtle 1.5s infinite ease-in-out 5.8s;
+      animation: fadeInUp 0.8s ease forwards 2.8s, pulse-subtle 1.5s infinite ease-in-out 3.6s;
 
       &:hover {
         background-color: darken($primary-red, 5%);
@@ -203,7 +203,7 @@
       flex-direction: column;
 
       .hero-text {
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
 
       }
