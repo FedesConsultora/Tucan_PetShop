@@ -206,7 +206,8 @@
 /* ===================== TABLET ===================== */
 @media (max-width: 991px) {
   .servicios-section {
-    padding: 60px 0 80px;
+    padding: 12px;
+
 
     .servicios-container {
       padding: 0 24px;
@@ -231,6 +232,17 @@
       h2 {
         font-size: 1.6rem;
       }
+    }
+
+    .servicios-green-wave {
+      position: absolute;
+      rotate: 20deg;
+      top: 0%;
+      left: 0%;
+      width: 110% !important;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 1;
     }
 
     .servicios-card--farmacia {
@@ -258,7 +270,7 @@
 /* ===================== MOBILE ===================== */
 @media (max-width: 576px) {
   .servicios-section {
-    padding: 40px 0 60px;
+    padding: 0px;
 
     .servicios-container {
       padding: 0 20px;
@@ -269,6 +281,20 @@
       grid-template-rows: auto;
       gap: 20px;
       justify-items: center;
+
+      .servicios-card--estetica {
+        grid-column: 1;
+        grid-row: 4;
+
+
+        .servicios-card__img {
+
+          object-position: 50% !important;
+
+
+        }
+
+      }
     }
 
     .servicios-card {
@@ -293,6 +319,8 @@
         transform: translateX(100px);
       }
 
+
+
       &__label {
         font-size: 1.4rem;
         bottom: 12px;
@@ -315,7 +343,7 @@
     }
 
     .servicios-green-wave {
-      width: 100%;
+      width: 110%;
       top: -15%;
     }
   }

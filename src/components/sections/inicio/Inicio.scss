@@ -81,13 +81,17 @@
 
   .hero-red-curve {
     position: absolute;
-    top: 45%;
-    right: -3%;
-    width: 105%;
+    top: 65%;
+    right: 0%;
+    width: 103%;
     z-index: 1;
     pointer-events: none;
     overflow: visible;
+  }
 
+  /* Hidden on desktop — only shown in tablet/mobile */
+  .hero-mobile-img {
+    display: none;
   }
 }
 
@@ -95,27 +99,57 @@
 @media screen and (max-width: 991px) {
   .inicio-section {
     margin: 16px 16px 0;
-    height: auto;
-    min-height: auto;
+    height: calc(100vh - 32px);
+    min-height: 500px;
+    max-height: none;
     flex-direction: column;
+    align-items: stretch;
     border-radius: 16px;
-    background-position: center top;
+    overflow: hidden;
+    background-image: none;
+    background-color: white;
+    overflow: visible;
+
+    .hero-red-curve {
+      position: absolute;
+      rotate: 10deg;
+      top: 90%;
+      right: 0%;
+      width: 140%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible !important;
+    }
+
+
+    .hero-mobile-img {
+      display: block;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+    }
+
 
     .hero-container {
       position: relative;
       bottom: unset;
       left: unset;
+      right: unset;
       width: 100%;
+      max-width: none;
       height: auto;
       min-height: unset;
-      margin-top: 60vw;
-      padding: 30px;
+      margin-top: 0;
+      padding: 28px 24px 32px;
+      border-radius: 0;
       box-shadow: none;
-      border-radius: 0 0 16px 16px;
 
       .hero-text {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
+        font-size: 2rem;
+        margin-bottom: 16px;
       }
 
       .cta-btn {
@@ -130,17 +164,35 @@
 @media screen and (max-width: 576px) {
   .inicio-section {
     margin: 12px 12px 0;
+    height: calc(100vh - 24px);
+    min-height: 480px;
+    overflow: visible !important;
+
+    .hero-mobile-img {
+      object-position: center 15%;
+    }
+
+    .hero-red-curve {
+      position: absolute;
+      rotate: 10deg;
+      top: 90%;
+      right: 0%;
+      width: 140%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible !important;
+    }
 
     .hero-container {
-      margin-top: 50vw;
-      padding: 24px 20px;
+      padding: 22px 20px 28px;
 
       .hero-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 12px;
       }
 
       .cta-btn {
-        font-size: 1rem;
+        font-size: 0.95rem;
         padding: 12px 24px;
       }
     }

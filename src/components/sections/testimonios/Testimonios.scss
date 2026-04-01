@@ -16,7 +16,7 @@
   &__viewport {
     overflow: hidden;
     width: 100%;
-    padding: 60px 0 20px;
+    padding: 60px 0 60px;
   }
 
   /* ---- Track ---- */
@@ -153,6 +153,12 @@
 /* ========== Tablet ========== */
 @media (max-width: 992px) {
   .testimonios {
+    &__viewport {
+      overflow: hidden;
+      width: 100%;
+      padding: 60px 0 60px;
+    }
+
     --card-width: 320px;
     --card-gap: 16px;
     padding: 60px 0;
@@ -166,6 +172,14 @@
 /* ========== Mobile ========== */
 @media (max-width: 576px) {
   .testimonios {
+
+    &__viewport {
+      overflow: hidden;
+      width: 100%;
+      padding: 60px 0 60px;
+    }
+
+    margin-bottom: -9rem;
     --card-width: 280px;
     --card-gap: 12px;
     padding: 40px 0;

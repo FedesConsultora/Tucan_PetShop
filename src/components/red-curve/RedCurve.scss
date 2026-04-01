@@ -3,7 +3,7 @@
 .red-curve-wrapper {
   position: absolute;
   /* Position at the boundary of Inicio and Promos */
-  bottom: 22%;
+  bottom: 10% !important;
   right: -5%;
   width: 65%;
   height: 600px;
@@ -33,7 +33,7 @@
   .red-curve-wrapper {
     width: 100%;
     height: 300px;
-    bottom: 28%;
-    right: -10%;
+    top: 0%;
+    right: 0%;
   }
 }
