@@ -11,8 +11,8 @@ const Servicios = () => {
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px' // Slightly offset for better entry feel
+      threshold: 0.3, // Trigger when 30% is visible
+      rootMargin: '0px 0px -180px 0px' // Delay until 150px from bottom of viewport
     };
 
     const observer = new IntersectionObserver((entries) => {

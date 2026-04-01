@@ -49,11 +49,19 @@
       .hero-text--yellow {
         color: $primary-yellow;
         line-height: -2px !important;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+        animation-delay: 3s;
+        display: inline-block;
       }
 
       .hero-text--dark {
         color: $dark-color;
         line-height: -2px !important;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+        animation-delay: 4s;
+        display: inline-block;
       }
     }
 
@@ -71,10 +79,13 @@
       cursor: pointer;
       margin-top: 1.5rem;
       transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards 5s, pulse-subtle 1.5s infinite ease-in-out 5.8s;
 
       &:hover {
         background-color: darken($primary-red, 5%);
         transform: translateY(-2px);
+        animation-play-state: paused; // Pause pulse on hover so it doesn't conflict with transform
       }
     }
   }
@@ -184,16 +195,24 @@
     }
 
     .hero-container {
-      padding: 22px 20px 28px;
+      padding: 22px 20px 20px;
+      margin-bottom: -4px;
+      align-items: center;
+      display: flex;
+
+      flex-direction: column;
 
       .hero-text {
-        font-size: 1.6rem;
-        margin-bottom: 12px;
+        font-size: 2rem;
+        text-align: center;
+
       }
 
       .cta-btn {
         font-size: 0.95rem;
-        padding: 12px 24px;
+        font-weight: 500;
+        margin-top: 2px;
+        padding: 12px 16px;
       }
     }
   }

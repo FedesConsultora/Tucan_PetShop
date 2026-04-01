@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import './Promos.scss';
 import PromosPic from '../../../assets/img/promos-pic.png';
 import BBVALogo from '../../../assets/img/BBVA.png';
@@ -5,6 +6,7 @@ import CtaDniLogo from '../../../assets/img/cta-dni.png';
 import BcoProvLogo from '../../../assets/img/bco-prov.png';
 
 const promosData = [
+  // ... (data remains the same)
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
@@ -58,8 +60,32 @@ const promosData = [
 ];
 
 const Promos = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+        } else {
+          entry.target.classList.remove('is-in-view');
+        }
+      });
+    }, observerOptions);
+
+    const cards = document.querySelectorAll('.promo-card');
+    cards.forEach(card => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="promos" className="promos-section">
+    <section id="promos" className="promos-section" ref={sectionRef}>
       <div className="promos-container">
         {/* Left side – dog image + banner */}
         <div className="promos-left">
@@ -86,7 +112,11 @@ const Promos = () => {
         {/* Right side – promo cards grid */}
         <div className="promos-grid">
           {promosData.map((promo, index) => (
-            <div className="promo-card" key={index}>
+            <div 
+              className="promo-card" 
+              key={index}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <div className="promo-card__header">
                 <img src={promo.bankLogo} alt={promo.bankAlt} className="promo-card__bank-logo" />
                 <span className={`promo-card__day-pill promo-card__day-pill--${promo.dayColor}`}>

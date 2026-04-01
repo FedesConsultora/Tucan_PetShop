@@ -55,3 +55,22 @@ section {
   min-height: unset;
   padding: 0;
 }
+
+/* ===================== GLOBAL ANIMATIONS ===================== */
+
+@keyframes pulse-subtle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
