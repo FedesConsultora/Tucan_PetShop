@@ -63,8 +63,8 @@ const Servicios = () => {
 
           {/* Card 3 – Farmacia Veterinaria (bottom-left) */}
           <div className="servicios-card servicios-card--farmacia">
-            <img src={FarmaciaImg} alt="Farmacia Veterinaria" className="servicios-card__img" />
-            <span className="servicios-card__label">Farmacia Veterinaria</span>
+            <img src={FarmaciaImg} alt="Farmacia veterinaria" className="servicios-card__img" />
+            <span className="servicios-card__label">Farmacia veterinaria</span>
           </div>
 
           {/* Card 4 – Accesorios (center, spans rows) */}

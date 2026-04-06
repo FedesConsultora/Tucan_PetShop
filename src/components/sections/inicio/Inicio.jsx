@@ -5,7 +5,7 @@ import heroPic from '../../../assets/img/hero-pic.png';
 const Inicio = () => {
   return (
     <section id="inicio" className="inicio-section">
-      <img src={heroPic} alt="Tucan PetShop" className="hero-mobile-img" aria-hidden="true" />
+      <img src={heroPic} alt="TuCan PetShop" className="hero-mobile-img" aria-hidden="true" />
       <div className="hero-container">
         <h1 className="hero-text" style={{ lineHeight: '1.1' }}>
           <span className="hero-text--yellow">Todo lo que tu mascota ama, </span>

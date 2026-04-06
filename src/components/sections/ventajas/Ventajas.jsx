@@ -42,7 +42,7 @@ const Ventajas = () => {
           <div className="ventajas-content">
             <h2 className="ventajas-content__title">
               ¿POR QUÉ<br />
-              ELEGIR TUCÁN?
+              ELEGIR TuCan?
             </h2>
 
             <div className="ventajas-list">

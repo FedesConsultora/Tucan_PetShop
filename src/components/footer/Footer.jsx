@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="footer__left">
             <div className="footer__map-placeholder" ref={mapRef}>
               <div className="footer__map-placeholder__logo">
-                <img src={Logo2} alt="Tucán Pet Shop" />
+                <img src={Logo2} alt="TuCan Pet Shop" />
               </div>
 
               {/* Google Maps-style info card */}
@@ -210,7 +210,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="footer__bottom">
-          <p>© 2026 TUCAN Tu tienda de mascotas. Todos los derechos reservados.</p>
+          <p>© 2026 TuCan Tienda de mascotas. Todos los derechos reservados.</p>
           <p>
             Desarrollado por{' '}
             <a

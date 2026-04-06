@@ -15,7 +15,7 @@ const testimoniosData = [
     name: 'María S. (Dueña de "Luna")',
     title: 'Aman a los animales',
     quote:
-      'Tucán no es solo que tiene buenas marcas, sino la calidad humana. Me ayudan en el juguete ideal o el alimento para mi perrita según su edad.',
+      'TuCan no es solo que tiene buenas marcas, sino la calidad humana. Me ayudan en el juguete ideal o el alimento para mi perrita según su edad.',
   },
   {
     image: Testimony2,
@@ -73,12 +73,12 @@ const Testimonios = () => {
   const handleJump = useCallback(() => {
     // With 5 sets [Set1, Set2, Set3, Set4, Set5]
     // Middle is Set3 (indices dataLength*2 to dataLength*3 - 1)
-    
+
     // If we've moved into Set1 or Set2, jump into the middle (Set3 or Set4)
     if (currentIndex < dataLength * 2) {
       setHasTransition(false);
       setCurrentIndex(currentIndex + dataLength);
-    } 
+    }
     // If we've moved into Set5, jump back towards the middle
     else if (currentIndex >= dataLength * 3) {
       setHasTransition(false);
@@ -141,9 +141,9 @@ const Testimonios = () => {
           className={`testimonios__track ${!hasTransition ? 'testimonios__track--no-transition' : ''}`}
           ref={trackRef}
           onTransitionEnd={handleJump}
-          style={{ 
+          style={{
             // The centering formula remains robust: Shift track by (index * totalWidth + halfCard)
-            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 480px) + var(--card-gap, 24px)) + (var(--card-width, 480px) / 2))))` 
+            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 480px) + var(--card-gap, 24px)) + (var(--card-width, 480px) / 2))))`
           }}
         >
           {extendedData.map((item, index) => {

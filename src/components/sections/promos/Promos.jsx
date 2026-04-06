@@ -18,9 +18,9 @@ const promosData = [
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
-    dayLabel: 'VIERNES Y SABADO',
+    dayLabel: 'VIERNES Y SÁBADO',
     dayColor: 'blue',
-    title: '30 CUOTAS SIN INTERES',
+    title: '30 CUOTAS SIN INTERÉS',
     description: '',
   },
   {
@@ -29,7 +29,7 @@ const promosData = [
     dayLabel: 'JUEVES',
     dayColor: 'yellow',
     title: '30% DE REINTEGRO',
-    highlight: 'Y 6 CUOTAS SIN INTERES',
+    highlight: 'Y 6 CUOTAS SIN INTERÉS',
     description: 'con tope de $14.000 por mes.',
   },
   {
@@ -54,8 +54,8 @@ const promosData = [
     dayLabel: 'TODOS LOS DÍAS',
     dayColor: 'purple',
     title: '10% DE REINTEGRO',
-    highlight: 'Y 4 CUOTAS SIN INTERES',
-    description: 'sin con tope.',
+    highlight: 'Y 4 CUOTAS SIN INTERÉS',
+    description: 'sin tope.',
   },
 ];
 
@@ -98,10 +98,10 @@ const Promos = () => {
               BANCARIAS
             </h2>
             <p className="promos-date">MARZO 2026</p>
-            <a 
-              href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido"
+              target="_blank"
+              rel="noopener noreferrer"
               className="promos-cta"
             >
               ¡Hacer mi pedido ahora!
@@ -112,8 +112,8 @@ const Promos = () => {
         {/* Right side – promo cards grid */}
         <div className="promos-grid">
           {promosData.map((promo, index) => (
-            <div 
-              className="promo-card" 
+            <div
+              className="promo-card"
               key={index}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >

@@ -4,18 +4,18 @@ import LogoPNG from '../../assets/img/logo.png';
 import LogoSVG from '../../assets/img/logo.svg';
 
 const navItems = [
-  { id: 'inicio',      label: 'Inicio' },
-  { id: 'promos',      label: 'Promos' },
-  { id: 'servicios',   label: 'Servicios' },
-  { id: 'ventajas',    label: 'Ventajas' },
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'promos', label: 'Promos' },
+  { id: 'servicios', label: 'Servicios' },
+  { id: 'ventajas', label: 'Ventajas' },
   { id: 'testimonios', label: 'Testimonios' },
 ];
 
 const Navbar = () => {
-  const [isVisible,      setIsVisible]      = useState(true);
-  const [lastScrollY,    setLastScrollY]    = useState(0);
-  const [activeSection,  setActiveSection]  = useState('inicio');
-  const [menuOpen,       setMenuOpen]       = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState('inicio');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /* ── hide / show navbar on scroll ── */
   const controlNavbar = useCallback(() => {
@@ -69,8 +69,8 @@ const Navbar = () => {
 
           {/* Logo */}
           <button className="navbar__logo" onClick={() => scrollTo('inicio')} aria-label="Ir al inicio">
-            <img src={LogoPNG} alt="Tucán PetShop" className="logo-desktop" />
-            <img src={LogoSVG} alt="Tucán PetShop" className="logo-mobile" />
+            <img src={LogoPNG} alt="TuCan PetShop" className="logo-desktop" />
+            <img src={LogoSVG} alt="TuCan PetShop" className="logo-mobile" />
           </button>
 
           {/* Desktop links */}
@@ -109,7 +109,7 @@ const Navbar = () => {
         aria-label="Menú de navegación"
       >
         <div className="nav-drawer__header">
-          <img src={LogoSVG} alt="Tucán PetShop" className="nav-drawer__logo" />
+          <img src={LogoSVG} alt="TuCan PetShop" className="nav-drawer__logo" />
           <button
             className="nav-drawer__close"
             onClick={() => setMenuOpen(false)}
