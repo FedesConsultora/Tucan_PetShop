@@ -55,7 +55,7 @@ const promosData = [
     dayColor: 'purple',
     title: '10% DE REINTEGRO',
     highlight: 'Y 4 CUOTAS SIN INTERÉS',
-    description: 'sin tope.',
+    description: '',
   },
 ];
 
