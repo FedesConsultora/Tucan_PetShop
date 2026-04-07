@@ -113,7 +113,7 @@ const Testimonios = () => {
   useEffect(() => {
     if (isPaused) return;
     intervalRef.current = setInterval(() => {
-      goPrev(); // Mueve el track hacia la derecha (muestra el anterior)
+      goNext(); // Mueve hacia la izquierda (avanza al siguiente)
     }, 4000);
     return () => clearInterval(intervalRef.current);
   }, [isPaused, goNext, goPrev]);
