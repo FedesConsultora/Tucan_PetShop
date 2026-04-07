@@ -2,16 +2,58 @@
 
 .testimonios {
   position: relative;
-  margin-bottom: -10rem;
+  margin-bottom: -8rem;
   z-index: 10;
   padding: 0 10px; // Increased top padding to reveal footer curve behind it
   background: transparent; // Ensure no background covers the curve
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   // Use variables for dynamic calculations
   --card-width: 320px;
   --card-gap: 24px;
+
+  /* ---- Header ---- */
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 20px;
+
+    h2 {
+      font-family: $font-rockwell-bold;
+      font-size: 2.5rem;
+      color: $dark-color;
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: $font-main;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $primary-red;
+
+      .rating-value {
+        color: $dark-color;
+      }
+
+      .stars {
+        color: $primary-yellow;
+        font-size: 1.3rem; 
+      }
+    }
+  }
+
+  /* ---- Slider Container ---- */
+  &__slider-container {
+    position: relative;
+    width: 100%;
+  }
 
   /* ---- Viewport ---- */
   &__viewport {
@@ -39,10 +81,10 @@
     flex: 0 0 var(--card-width);
     height: auto;
     min-height: 250px;
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 12px;
     padding: 32px 24px 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
     text-align: left;
     position: relative;
     display: flex;
@@ -176,6 +218,18 @@
 /* ========== Tablet ========== */
 @media (max-width: 992px) {
   .testimonios {
+    &__header {
+      margin-bottom: 1rem;
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      .rating-summary {
+        font-size: 1.1rem;
+      }
+    }
+
     &__viewport {
       overflow: hidden;
       width: 100%;
@@ -195,6 +249,18 @@
 /* ========== Mobile ========== */
 @media (max-width: 576px) {
   .testimonios {
+    &__header {
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .rating-summary {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 1rem;
+      }
+    }
+
     padding: 0 !important;
 
     &__viewport {

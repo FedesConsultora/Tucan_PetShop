@@ -113,10 +113,10 @@ const Testimonios = () => {
   useEffect(() => {
     if (isPaused) return;
     intervalRef.current = setInterval(() => {
-      goNext();
-    }, 4500);
+      goPrev(); // Mueve el track hacia la derecha (muestra el anterior)
+    }, 4000);
     return () => clearInterval(intervalRef.current);
-  }, [isPaused, goNext]);
+  }, [isPaused, goNext, goPrev]);
 
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
@@ -157,82 +157,91 @@ const Testimonios = () => {
 
   return (
     <section className="testimonios" id="testimonios">
-      <div
-        className="testimonios__viewport"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={(e) => { handleMouseLeave(); handleDragEnd(); }}
-        onTouchStart={handleDragStart}
-        onTouchMove={handleDragMove}
-        onTouchEnd={handleDragEnd}
-      >
-        <div
-          className={`testimonios__track ${!hasTransition ? 'testimonios__track--no-transition' : ''}`}
-          ref={trackRef}
-          onTransitionEnd={handleJump}
-          onMouseDown={handleDragStart}
-          onMouseMove={handleDragMove}
-          onMouseUp={handleDragEnd}
-          style={{
-            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 320px) + var(--card-gap, 24px)) + (var(--card-width, 320px) / 2)) + ${dragOffset}px))`,
-            cursor: isDragging.current ? 'grabbing' : 'grab',
-            userSelect: 'none',
-          }}
-        >
-          {extendedData.map((item, index) => {
-            // Highlight the visual active card (the one in the middle of current view)
-            const isActive = index === currentIndex;
-
-            return (
-              <div
-                className={`testimonios__card ${isActive ? 'testimonios__card--active' : ''}`}
-                key={index}
-              >
-                <div className="testimonios__avatar">
-                  {item.image ? (
-                    <img src={item.image} alt={item.name} />
-                  ) : (
-                    <span>{item.initial}</span>
-                  )}
-                </div>
-
-                <p className="testimonios__author">{item.name}</p>
-
-                <div className="testimonios__stars">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span
-                      key={i}
-                      className={`testimonios__star ${i < item.stars ? 'testimonios__star--filled' : ''}`}
-                    >
-                      ★
-                    </span>
-                  ))}
-                </div>
-
-
-
-                <p className="testimonios__quote">{item.quote}</p>
-                <p className="testimonios__date">{item.date}</p>
-              </div>
-            );
-          })}
+      <div className="testimonios__header">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div className="rating-summary">
+          <span>Más de 2,000 reseñas nos califican con 5 <span className="stars">★</span></span>
         </div>
       </div>
 
-      {/* Navigation arrows */}
-      <button
-        className="testimonios__arrow testimonios__arrow--left"
-        onClick={() => handleArrowClick('prev')}
-        aria-label="Anterior"
-      >
-        ‹
-      </button>
-      <button
-        className="testimonios__arrow testimonios__arrow--right"
-        onClick={() => handleArrowClick('next')}
-        aria-label="Siguiente"
-      >
-        ›
-      </button>
+      <div className="testimonios__slider-container">
+        <div
+          className="testimonios__viewport"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={(e) => { handleMouseLeave(); handleDragEnd(); }}
+          onTouchStart={handleDragStart}
+          onTouchMove={handleDragMove}
+          onTouchEnd={handleDragEnd}
+        >
+          <div
+            className={`testimonios__track ${!hasTransition ? 'testimonios__track--no-transition' : ''}`}
+            ref={trackRef}
+            onTransitionEnd={handleJump}
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            style={{
+              transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 320px) + var(--card-gap, 24px)) + (var(--card-width, 320px) / 2)) + ${dragOffset}px))`,
+              cursor: isDragging.current ? 'grabbing' : 'grab',
+              userSelect: 'none',
+            }}
+          >
+            {extendedData.map((item, index) => {
+              // Highlight the visual active card (the one in the middle of current view)
+              const isActive = index === currentIndex;
+
+              return (
+                <div
+                  className={`testimonios__card ${isActive ? 'testimonios__card--active' : ''}`}
+                  key={index}
+                >
+                  <div className="testimonios__avatar">
+                    {item.image ? (
+                      <img src={item.image} alt={item.name} />
+                    ) : (
+                      <span>{item.initial}</span>
+                    )}
+                  </div>
+
+                  <p className="testimonios__author">{item.name}</p>
+
+                  <div className="testimonios__stars">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className={`testimonios__star ${i < item.stars ? 'testimonios__star--filled' : ''}`}
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+
+
+
+                  <p className="testimonios__quote">{item.quote}</p>
+                  <p className="testimonios__date">{item.date}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Navigation arrows */}
+        <button
+          className="testimonios__arrow testimonios__arrow--left"
+          onClick={() => handleArrowClick('prev')}
+          aria-label="Anterior"
+        >
+          ‹
+        </button>
+        <button
+          className="testimonios__arrow testimonios__arrow--right"
+          onClick={() => handleArrowClick('next')}
+          aria-label="Siguiente"
+        >
+          ›
+        </button>
+      </div>
     </section>
   );
 };
