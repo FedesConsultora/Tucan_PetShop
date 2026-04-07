@@ -9,7 +9,7 @@
 
 
   // Use variables for dynamic calculations
-  --card-width: 480px;
+  --card-width: 320px;
   --card-gap: 24px;
 
   /* ---- Viewport ---- */
@@ -38,7 +38,7 @@
     min-height: 250px;
     background: white;
     border-radius: 12px;
-    padding: 50px 24px 24px;
+    padding: 32px 24px 24px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: left;
     position: relative;
@@ -58,58 +58,76 @@
   /* ---- Avatar – sits on top edge of card ---- */
   &__avatar {
     position: absolute;
-    top: -45px;
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid white;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
+    overflow: visible;
 
     img {
-      width: 100%;
+      width: 90%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     span {
       font-family: $font-main;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: white;
     }
   }
 
-  /* ---- Text ---- */
-  &__card-title {
+  &__author {
     text-align: center;
-    font-family: $font-main;
+    font-size: 0.85rem;
+    color: black;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  /* ---- Stars ---- */
+  &__stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  &__star {
+    color: #e0e0e0;
     font-size: 1.2rem;
-    color: $dark-color;
-    margin-bottom: 10px;
-    line-height: 1.25;
+
+    &--filled {
+      color: #fdd663;
+    }
+  }
+
+  &__date {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 400;
+    margin-top: auto; // Push to bottom
+    padding-top: 16px; // Minimum space from quote
   }
 
   &__quote {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.90rem;
     color: $dark-color;
     line-height: 1.55;
-    margin-bottom: 14px;
-
-  }
-
-  &__author {
-    margin-top: auto;
-    padding-top: 10px;
-    text-align: center;
-    font-size: 0.80rem;
-    color: #7659FF;
-    font-weight: 600;
   }
 
   /* ---- Arrows ---- */
