@@ -13,7 +13,7 @@
     bottom: -20px;
     left: -5%;
     width: 110%;
-    z-index: 1;
+    z-index: 3; // Above Footer background, but below cards (z=10)
     pointer-events: none;
   }
 
@@ -22,7 +22,7 @@
     margin: 0 auto;
     padding: 0 40px;
     position: relative;
-    z-index: 2;
+    z-index: 4; // Above the wave
   }
 
   /* ===================== CARD ===================== */

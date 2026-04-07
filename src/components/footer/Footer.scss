@@ -198,14 +198,16 @@
     width: 100%;
     height: 100%;
     border-radius: 18px;
-    overflow: hidden;
+    overflow: hidden; // Clips the iframe and ensures rounded corners
     position: relative;
     z-index: 1;
 
     iframe {
+      position: absolute;
+      top: -64px; // Hide Google Maps header bar
+      left: 0;
       width: 100%;
-      height: calc(100% + 64px);
-      margin-top: -64px;
+      height: calc(100% + 64px); // Extend to compensate for top offset
       border: 0;
     }
   }
@@ -344,6 +346,8 @@
     margin-top: 1px;
   }
 
+  overflow: hidden; // Previene scroll horizontal accidental por ondas o transformaciones
+
   /* ---- Bottom bar ---- */
   &__bottom {
     display: flex;
@@ -386,7 +390,8 @@
     }
 
     &__map-placeholder {
-      max-width: 100%;
+      max-width: 500px; // Prevent stretching in tablet
+      margin: 0 auto;
       height: 240px;
     }
 
@@ -434,15 +439,24 @@
     }
 
     &__content {
-      padding: 30px 32px;
+      padding: 100px 32px;
       gap: 24px;
       align-items: center;
       margin: 0;
     }
 
     &__map-placeholder {
-      height: 210px;
-      max-width: 100%;
+      height: 260px;
+      max-width: 450px;
+      margin: 0 auto 20px;
+
+      iframe {
+        position: absolute;
+        top: -50px; // Slightly less offset for mobile
+        left: 0;
+        width: 100%;
+        height: calc(100% + 50px);
+      }
 
       &__logo {
         width: 50px;
@@ -491,6 +505,7 @@
     &__location-item {
       display: none;
     }
+
 
     &__location-name {
       padding: 0px;

@@ -55,6 +55,12 @@ const Testimonios = () => {
   const trackRef = useRef(null);
   const intervalRef = useRef(null);
 
+  // Drag/Swipe state
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragDelta = useRef(0);
+  const [dragOffset, setDragOffset] = useState(0);
+
   const totalSlides = extendedData.length;
 
   const handleJump = useCallback(() => {
@@ -115,22 +121,61 @@ const Testimonios = () => {
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 
+  // ---- Drag / Swipe handlers ----
+  const handleDragStart = (e) => {
+    isDragging.current = true;
+    dragStartX.current = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    dragDelta.current = 0;
+    setDragOffset(0);
+    setIsPaused(true);
+    setHasTransition(false); // Disable transition during drag for immediate feedback
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging.current) return;
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const delta = clientX - dragStartX.current;
+    dragDelta.current = delta;
+    setDragOffset(delta);
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    setHasTransition(true); // Re-enable transition for snap animation
+
+    const threshold = 50; // Minimum drag distance to trigger a slide change
+    if (dragDelta.current < -threshold) {
+      goNext();
+    } else if (dragDelta.current > threshold) {
+      goPrev();
+    }
+    setDragOffset(0);
+    // Resume autoplay after a short delay
+    setTimeout(() => setIsPaused(false), 2000);
+  };
+
   return (
     <section className="testimonios" id="testimonios">
       <div
         className="testimonios__viewport"
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleMouseEnter}
-        onTouchEnd={handleMouseLeave}
+        onMouseLeave={(e) => { handleMouseLeave(); handleDragEnd(); }}
+        onTouchStart={handleDragStart}
+        onTouchMove={handleDragMove}
+        onTouchEnd={handleDragEnd}
       >
         <div
           className={`testimonios__track ${!hasTransition ? 'testimonios__track--no-transition' : ''}`}
           ref={trackRef}
           onTransitionEnd={handleJump}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
           style={{
-            // The centering formula remains robust: Shift track by (index * totalWidth + halfCard)
-            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 320px) + var(--card-gap, 24px)) + (var(--card-width, 320px) / 2))))`
+            transform: `translateX(calc(50% - (${currentIndex} * (var(--card-width, 320px) + var(--card-gap, 24px)) + (var(--card-width, 320px) / 2)) + ${dragOffset}px))`,
+            cursor: isDragging.current ? 'grabbing' : 'grab',
+            userSelect: 'none',
           }}
         >
           {extendedData.map((item, index) => {
