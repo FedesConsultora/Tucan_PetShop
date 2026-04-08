@@ -145,7 +145,7 @@ const Footer = () => {
           {/* Right – 2-column grid: addresses left, social right */}
           <div className="footer__right">
             <h3 className="footer__title">HORARIOS DE ATENCIÓN</h3>
-            <p className="footer__schedule">Lunes a Domingos de 08:00 hs a 21:00 hs.</p>
+            <p className="footer__schedule"> Lunes a domingos de 08:00 a 21:00 h.</p>
 
             <div className="footer__info-grid">
 

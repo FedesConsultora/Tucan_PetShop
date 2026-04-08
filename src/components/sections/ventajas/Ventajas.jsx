@@ -5,15 +5,15 @@ import Dog3dVideo from '../../../assets/img/dog-3d.mp4';
 const ventajasData = [
   {
     title: 'ATENCIÓN PERSONALIZADA',
-    description: 'No hablamos con robots, te asesoramos según las necesidades de tu mascota.',
+    description: 'Acá no hay robots: te asesoramos según lo que realmente necesita tu mascota.',
   },
   {
     title: 'ENVÍOS RÁPIDOS',
-    description: 'Recibe tu pedido en la puerta de tu casa sin complicaciones.',
+    description: 'Recibí tu pedido en la puerta de tu casa, fácil y sin vueltas.',
   },
   {
     title: 'VARIEDAD REAL',
-    description: 'Tenemos stock permanente de las marcas líderes del mercado.',
+    description: 'Stock permanente de las marcas que sabés que funcionan.',
   },
 ];
 
@@ -42,7 +42,7 @@ const Ventajas = () => {
           <div className="ventajas-content">
             <h2 className="ventajas-content__title">
               ¿POR QUÉ<br />
-              ELEGIR TuCan?
+              ELEGIR TUCAN?
             </h2>
 
             <div className="ventajas-list">
