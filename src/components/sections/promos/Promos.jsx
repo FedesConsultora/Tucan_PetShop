@@ -23,15 +23,15 @@ const promosData = [
     title: '30 CUOTAS SIN INTERÉS',
     description: '',
   },
-  {
-    bankLogo: BBVALogo,
-    bankAlt: 'BBVA',
-    dayLabel: 'JUEVES',
-    dayColor: 'yellow',
-    title: '30% DE REINTEGRO',
-    highlight: 'Y 6 CUOTAS SIN INTERÉS',
-    description: 'con tope de $14.000 por mes.',
-  },
+  // {
+  //   bankLogo: BBVALogo,
+  //   bankAlt: 'BBVA',
+  //   dayLabel: 'JUEVES',
+  //   dayColor: 'yellow',
+  //   title: '30% DE REINTEGRO',
+  //   highlight: 'Y 6 CUOTAS SIN INTERÉS',
+  //   description: 'con tope de $14.000 por mes.',
+  // },
   {
     bankLogo: CtaDniLogo,
     bankAlt: 'Cuenta DNI',
@@ -97,7 +97,7 @@ const Promos = () => {
               PROMOS<br />
               BANCARIAS
             </h2>
-            <p className="promos-date">MARZO 2026</p>
+            <p className="promos-date">ABRIL 2026</p>
             <a
               href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido"
               target="_blank"

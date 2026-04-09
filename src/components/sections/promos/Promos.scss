@@ -104,6 +104,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+
+    // To achieve the 1-2-2 layout: 1 card centered at top, then 2 rows of 2
+    @media (min-width: 577px) {
+      .promo-card:nth-child(1) {
+        grid-column: 1 / span 2;
+        justify-self: center;
+      }
+    }
   }
 
   .promo-card {
