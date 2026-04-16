@@ -11,6 +11,14 @@ const promosData = [
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
+    dayLabel: 'LUNES 27 Y MIÉRCOLES 29',
+    dayColor: 'purple',
+    title: '30% DE REINTEGRO',
+    description: 'con tope de $13.000 por mes.',
+  },
+  {
+    bankLogo: BBVALogo,
+    bankAlt: 'BBVA',
     dayLabel: 'MARTES',
     dayColor: 'pink',
     title: '30% DE REINTEGRO',
@@ -28,9 +36,9 @@ const promosData = [
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
-    dayLabel: 'VIERNES Y SABADO',
+    dayLabel: 'VIERNES Y SÁBADO',
     dayColor: 'yellow',
-    title: '3 CUOTAS SIN INTERES',
+    title: '3 CUOTAS SIN INTERÉS',
     highlight: '',
     description: '',
   },
