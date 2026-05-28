@@ -4,34 +4,36 @@ import PromosPic from '../../../assets/img/promos-pic.png';
 import BBVALogo from '../../../assets/img/BBVA.png';
 import CtaDniLogo from '../../../assets/img/cta-dni.png';
 import BcoProvLogo from '../../../assets/img/bco-prov.png';
+import GaliciaLogo from '../../../assets/img/galicia.png';
 
 const promosData = [
-  // ... (data remains the same)
+
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
     dayLabel: 'MARTES',
     dayColor: 'pink',
     title: '30% DE REINTEGRO',
-    description: 'con tope de $11.000 por mes.',
+    description: 'con tope de $12.000 por mes.',
+  },
+  {
+    bankLogo: GaliciaLogo,
+    bankAlt: 'Banco Galicia',
+    dayLabel: 'TODOS LOS MARTES',
+    dayColor: 'purple',
+    title: '15% DE REINTEGRO',
+    highlight: 'Y 3 CUOTAS SIN INTERÉS',
+    description: 'con tope de $10.000 por mes',
   },
   {
     bankLogo: BBVALogo,
     bankAlt: 'BBVA',
-    dayLabel: 'VIERNES Y SÁBADO',
-    dayColor: 'blue',
-    title: '30 CUOTAS SIN INTERÉS',
+    dayLabel: 'VIERNES Y SABADO',
+    dayColor: 'yellow',
+    title: '3 CUOTAS SIN INTERES',
+    highlight: '',
     description: '',
   },
-  // {
-  //   bankLogo: BBVALogo,
-  //   bankAlt: 'BBVA',
-  //   dayLabel: 'JUEVES',
-  //   dayColor: 'yellow',
-  //   title: '30% DE REINTEGRO',
-  //   highlight: 'Y 6 CUOTAS SIN INTERÉS',
-  //   description: 'con tope de $14.000 por mes.',
-  // },
   {
     bankLogo: CtaDniLogo,
     bankAlt: 'Cuenta DNI',
@@ -43,10 +45,10 @@ const promosData = [
   {
     bankLogo: CtaDniLogo,
     bankAlt: 'Cuenta DNI',
-    dayLabel: 'TODOS LOS VIERNES',
+    dayLabel: 'MIÉRCOLES, JUEVES Y VIERNES',
     dayColor: 'red',
     title: '20% DE REINTEGRO',
-    description: 'con tope de $5.000.',
+    description: 'con tope de $5.000 .',
   },
   {
     bankLogo: BcoProvLogo,
@@ -55,7 +57,7 @@ const promosData = [
     dayColor: 'purple',
     title: '10% DE REINTEGRO',
     highlight: 'Y 4 CUOTAS SIN INTERÉS',
-    description: '',
+    description: 'Sin tope de reintegro',
   },
 ];
 
@@ -97,7 +99,7 @@ const Promos = () => {
               PROMOS<br />
               BANCARIAS
             </h2>
-            <p className="promos-date">ABRIL 2026</p>
+            <p className="promos-date">MAYO 2026</p>
             <a
               href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido"
               target="_blank"
