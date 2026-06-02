@@ -6,6 +6,7 @@ import CtaDniLogo from '../../../assets/img/cta-dni.png';
 import BcoProvLogo from '../../../assets/img/bco-prov.png';
 import GaliciaLogo from '../../../assets/img/galicia.png';
 
+
 const promosData = [
 
   {
@@ -107,7 +108,7 @@ const Promos = () => {
               PROMOS<br />
               BANCARIAS
             </h2>
-            <p className="promos-date">MAYO 2026</p>
+            <p className="promos-date">JUNIO 2026</p>
             <a
               href="https://wa.me/5402215399399?text=¡Hola!%20Quisiera%20hacer%20un%20pedido"
               target="_blank"
